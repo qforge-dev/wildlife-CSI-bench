@@ -1,0 +1,28 @@
+# OpenRouter endpoint and key are supplied by GLM_5.3_FLASH_* in .env.
+id: glm
+display_name: GLM 5.3 Flash (OpenRouter)
+adapter: openai-compatible
+base_url: https://openrouter.ai/api/v1
+base_url_env: GLM_5.3_FLASH_BASE_URL
+api_key_env: GLM_5.3_FLASH_API_KEY
+model_env: GLM_5.3_FLASH_MODEL
+model: z-ai/glm-5.3-flash
+structured_output: false
+max_output_tokens: 16000
+token_param: max_tokens
+# Fixed high reasoning effort for the official benchmark.
+reasoning_effort: high
+reasoning_api: openai
+reasoning_style: nested
+# temperature omitted: provider default.
+# Prices in USD per 1k tokens, verified 2026-09-11:
+# https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints
+# Automatic provider routing; use the highest currently listed active rates
+# ($0.45 input / $1.50 output / $0.09 cache read per 1M, Modal).
+# DeepInfra's discounted $0.075/$0.25/$0.015 per 1M is not guaranteed by routing.
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.00045
+price_cached_1k_tokens: 0.00009
+price_output_1k_tokens: 0.0015
+timeout_s: 180
+notes: "Vision via OpenRouter; high by default, low supported. Automatic provider routing; budget estimates use conservative listed rates, not actual billed cost."

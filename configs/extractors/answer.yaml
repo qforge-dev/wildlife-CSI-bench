@@ -1,0 +1,15 @@
+id: gpt-6-sol-answer-extractor
+display_name: GPT-6 Sol text answer extractor
+adapter: openai-compatible
+base_url_env: GPT6_SOL_BASE_URL
+api_key_env: GPT6_SOL_API_KEY
+model_env: GPT6_SOL_MODEL
+model: gpt-6-sol
+reasoning_effort: medium
+max_output_tokens: 1000
+token_param: max_completion_tokens
+timeout_s: 120
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.002
+price_cached_1k_tokens: 0.0002
+price_output_1k_tokens: 0.01

@@ -1,0 +1,27 @@
+# OpenRouter endpoint and key are supplied by MUSE_1.3_* in .env.
+id: muse
+display_name: Muse Spark 1.3 Contributor (OpenRouter)
+adapter: openai-compatible
+base_url: https://openrouter.ai/api/v1
+base_url_env: MUSE_1.3_BASE_URL
+api_key_env: MUSE_1.3_API_KEY
+model_env: MUSE_1.3_MODEL
+model: meta/muse-spark-1.3-contributor
+structured_output: false
+max_output_tokens: 16000
+token_param: max_tokens
+# Image input and low/medium/high reasoning verified in OpenRouter's catalog.
+reasoning_effort: high
+reasoning_api: openai
+reasoning_style: nested
+# temperature omitted: provider default.
+# Contributor-tier prices in USD per 1k tokens, verified 2026-09-11:
+# https://openrouter.ai/api/v1/models/meta/muse-spark-1.3-contributor/endpoints
+# Per 1M tokens: $0.10 input, $0.20 output, $0.002 cached input.
+# No tools or web search are used in this benchmark.
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.0001
+price_cached_1k_tokens: 0.000002
+price_output_1k_tokens: 0.0002
+timeout_s: 180
+notes: "Muse Spark 1.3 Contributor via Meta on OpenRouter; high reasoning effort. Contributor-tier pricing verified 2026-09-11."

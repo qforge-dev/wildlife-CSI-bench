@@ -1,0 +1,26 @@
+# Model registry: one file per model. Secrets ONLY via env (never committed).
+# AWS auth uses the standard chain (env AWS_ACCESS_KEY_ID / SSO / IAM role).
+id: fable
+display_name: Fable (Bedrock)
+adapter: bedrock-converse
+# Region and model ID can be overridden through environment variables.
+region_env: FABLE_REGION
+region: us-east-1
+model_env: FABLE_MODEL
+model: global.anthropic.claude-fable-5-1
+# Open-ended animal identification; no candidate list is sent.
+structured_output: false  # model rejects outputConfig (ValidationException)
+reasoning_effort: high
+max_output_tokens: 16000
+# temperature omitted: reasoning-class models only accept the default
+# Pricing in USD per 1k tokens (Bedrock has no per-request fee).
+# User-supplied Claude Fable 5.1 sheet: base input $10/MTok, output $50/MTok,
+# cache hits+refreshes $0.25/MTok (5m writes $12.50, 1h writes $20 not tracked).
+# Used ONLY for --max-cost guards.
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.01
+price_cached_1k_tokens: 0.00025
+price_output_1k_tokens: 0.05
+# Request timeout.
+timeout_s: 180
+notes: Bedrock pricing reference used for the published runs; adjust rates for your account.

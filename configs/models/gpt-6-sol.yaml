@@ -1,0 +1,25 @@
+# Model registry: one file per model. Secrets ONLY via env (never committed).
+id: gpt-6-sol
+display_name: GPT-6 Sol (vision, Azure)
+adapter: openai-compatible
+# Set endpoint and credentials through the variables below.
+base_url_env: GPT6_SOL_BASE_URL
+api_key_env: GPT6_SOL_API_KEY
+model_env: GPT6_SOL_MODEL
+model: gpt-6-sol
+# Open answer: one animal name, with no candidate list.
+structured_output: false
+reasoning_effort: high
+max_output_tokens: 16000
+token_param: max_completion_tokens
+# temperature omitted: GPT-class models only accept the default (1)
+# Pricing in USD per 1k tokens (no per-request fee on Azure/OpenAI).
+# GPT-6 Sol standard rates: $2.00/1M input, $10.00/1M output.
+# Cached input kept at 10% of input.
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.002
+price_cached_1k_tokens: 0.0002
+price_output_1k_tokens: 0.01
+# Runner limits.
+timeout_s: 120
+notes: Azure OpenAI; pricing reference only, contract rates may differ.

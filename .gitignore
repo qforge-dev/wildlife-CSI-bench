@@ -1,0 +1,17 @@
+# Secrets - never commit
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+data/work/
+data/**/images/
+data/**/runs/
+data/**/qa-*.jpg
+data/**/build-checkpoint.json
+data/**/build-checkpoint.jsonl
+*.egg-info/
