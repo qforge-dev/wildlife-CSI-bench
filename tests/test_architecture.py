@@ -3,21 +3,13 @@ import json
 
 import httpx
 import pytest
-from PIL import Image
 
-from wildlife_csi.builder import SuiteBuilder
 from wildlife_csi.bedrock_adapter import BedrockAnswerAdapter
 from wildlife_csi.execution import RunEngine, RunSettings
 from wildlife_csi.open_adapter import OpenAnswerAdapter, ProviderCallError
 from wildlife_csi.scoring import ScoreEngine, align_predictions
-from wildlife_csi.storage import JsonlPredictionStore, LocalImageStore
 from wildlife_csi.source import INaturalist
-
-
-def fixture_location(observation, source):
-    return {"country": "United States", "level": "country", "basis": "observation_public_place",
-            "is_observation_location": True, "source": "iNaturalist", "source_place_id": 1,
-            "geoprivacy": "open", "observation_id": source["observation_id"]}
+from wildlife_csi.storage import JsonlPredictionStore, LocalImageStore
 
 
 class FakeHTTP:
@@ -142,6 +134,25 @@ def test_bedrock_records_raw_response_and_usage():
     assert adapter.estimated_cost() > 0
 
 
+def test_bedrock_model_key_uses_bearer_env(monkeypatch):
+    import boto3
+    from botocore.handlers import get_token_from_environment
+
+    monkeypatch.setenv("OPUS55_API_KEY", "test-bedrock-key")
+    monkeypatch.delenv("AWS_BEARER_TOKEN_BEDROCK", raising=False)
+    seen = {}
+
+    def fake_client(*args, **kwargs):
+        seen["service"] = args[0]
+        seen["token"] = get_token_from_environment("bedrock")
+        return object()
+
+    monkeypatch.setattr(boto3, "client", fake_client)
+    config = {**model_config(), "region": "us-east-1", "key_env": "OPUS55_API_KEY"}
+    BedrockAnswerAdapter(config)._client_for_call()
+    assert seen == {"service": "bedrock-runtime", "token": "test-bedrock-key"}
+
+
 def test_provider_error_keeps_body_and_attempt_details(tmp_path, monkeypatch):
     monkeypatch.setenv("TEST_WILDLIFE_API_KEY", "very-secret")
     response = httpx.Response(
@@ -161,7 +172,8 @@ def test_provider_error_keeps_body_and_attempt_details(tmp_path, monkeypatch):
         raise AssertionError("expected provider error")
 
 
-def test_run_engine_persists_raw_response_usage_and_retry_history(tmp_path):
+@pytest.mark.parametrize("failure", ["HTTP 429", "Bedrock ServiceUnavailableException"])
+def test_run_engine_persists_raw_response_usage_and_retry_history(tmp_path, failure):
     image = b"prepared image"
     sha = hashlib.sha256(image).hexdigest()
     image_dir = tmp_path / "images"
@@ -184,9 +196,7 @@ def test_run_engine_persists_raw_response_usage_and_retry_history(tmp_path):
         def predict(self, payload, context):
             self.calls += 1
             if self.calls == 1:
-                raise ProviderCallError(
-                    "HTTP 429", {"http_status": 429, "raw_response_text": "busy"}
-                )
+                raise ProviderCallError(failure, {"http_status": 429, "raw_response_text": "busy"})
             return (
                 [{"taxon": "Killdeer"}],
                 {
@@ -221,137 +231,6 @@ def test_run_engine_persists_raw_response_usage_and_retry_history(tmp_path):
     assert row["attempts_detail"][1]["outcome"] == "response"
     assert row["input"]["prompt"] == "What animal?"
     assert store.load_manifest()["sessions"][0]["code_sha256"]
-
-
-class FakeRepo:
-    def __init__(self, image, label):
-        self.image, self.label = image, label
-
-    def list_files(self, spec):
-        return ["species/test/images/123_0.jpg", "species/test/labels/123_0.txt"]
-
-    def download(self, spec, path):
-        return self.label if path.endswith(".txt") else self.image
-
-
-class FakeTaxonomy:
-    def observations(self, ids, require_all=True):
-        return {
-            "123": {
-                "id": 123,
-                "quality_grade": "research",
-                "taxon": {"id": 1},
-                "photos": [{"id": 9, "license_code": "cc-by", "attribution": "X"}],
-            }
-        }
-
-    def taxa(self, ids):
-        return {
-            1: {
-                "id": 1,
-                "name": "Vulpes vulpes",
-                "rank": "species",
-                "ancestors": [
-                    {"id": 3, "name": "Canidae", "rank": "family"},
-                    {"id": 2, "name": "Vulpes", "rank": "genus"},
-                ],
-            }
-        }
-
-
-def test_builder_uses_injected_source_truth(tmp_path):
-    image = tmp_path / "source.jpg"
-    Image.new("RGB", (1000, 800), "brown").save(image)
-    label = tmp_path / "label.txt"
-    label.write_text("7 0.1 0.1 0.9 0.1 0.9 0.9 0.1 0.9\n")
-    out = tmp_path / "suite"
-    SuiteBuilder(
-        FakeRepo(image, label),
-        FakeTaxonomy(),
-        quality_scorer=lambda img: {
-            "native_crop_short_side": min(img.size),
-            "contrast": 50,
-            "detail": 10,
-            "score": 0.5,
-        },
-        location_resolver=fixture_location,
-    ).build(1, 42, ["egg"], out)
-    task = json.loads((out / "tasks.jsonl").read_text())
-    assert task["correct_taxon"] == "Vulpes vulpes"
-    assert task["source"]["yolo_class_id"] == 7
-
-
-def test_builder_resumes_after_source_failure(tmp_path):
-    images = {}
-    for obs, color in (("123", "brown"), ("456", "green")):
-        image = tmp_path / f"{obs}.jpg"
-        Image.new("RGB", (1000, 800), color).save(image)
-        images[obs] = image
-    label = tmp_path / "label.txt"
-    label.write_text("7 0.1 0.1 0.9 0.1 0.9 0.9 0.1 0.9\n")
-
-    class TwoRepo:
-        fail_once = True
-        downloaded = []
-
-        def list_files(self, spec):
-            return [
-                f"species/test/{folder}/{obs}_0.{ext}"
-                for obs in images
-                for folder, ext in (("images", "jpg"), ("labels", "txt"))
-            ]
-
-        def download(self, spec, path):
-            obs = path.split("/")[-1].split("_")[0]
-            if path.endswith(".txt"):
-                return label
-            self.downloaded.append(obs)
-            if self.fail_once and len(self.downloaded) == 2:
-                self.fail_once = False
-                raise httpx.RemoteProtocolError("source disconnected")
-            return images[obs]
-
-    class TwoTaxonomy(FakeTaxonomy):
-        def observations(self, ids, require_all=True):
-            return {
-                obs: {
-                    "id": int(obs),
-                    "quality_grade": "research",
-                    "taxon": {"id": 1},
-                    "photos": [{"id": 9, "license_code": "cc-by", "attribution": "X"}],
-                }
-                for obs in ids
-            }
-
-    repo = TwoRepo()
-    out = tmp_path / "suite"
-    with pytest.raises(httpx.RemoteProtocolError):
-        SuiteBuilder(
-            repo,
-            TwoTaxonomy(),
-            quality_scorer=lambda img: {
-                "native_crop_short_side": min(img.size),
-                "contrast": 50,
-                "detail": 10,
-                "score": 0.5,
-            },
-            location_resolver=fixture_location,
-        ).build(2, 42, ["egg"], out)
-    assert len((out / "build-checkpoint.jsonl").read_text().splitlines()) == 1
-    SuiteBuilder(
-        repo,
-        TwoTaxonomy(),
-        quality_scorer=lambda img: {
-            "native_crop_short_side": min(img.size),
-            "contrast": 50,
-            "detail": 10,
-            "score": 0.5,
-        },
-        location_resolver=fixture_location,
-    ).build(2, 42, ["egg"], out)
-    assert len(repo.downloaded) == 3  # first image was not downloaded again
-    assert len((out / "tasks.jsonl").read_text().splitlines()) == 2
-    assert not (out / "build-checkpoint.jsonl").exists()
 
 
 def test_inaturalist_retries_protocol_disconnect(monkeypatch):
@@ -465,9 +344,9 @@ def test_species_macro_exposes_repeated_species_weighting():
         def resolve_name(self, name):
             return {"species_id": 99, "genus_id": 98, "family_id": 97}
 
-    result, _ = ScoreEngine(
-        WrongResolver(), MemoryCache(), UnusedExtractor(), MemoryCache()
-    ).score(tasks, predictions)
+    result, _ = ScoreEngine(WrongResolver(), MemoryCache(), UnusedExtractor(), MemoryCache()).score(
+        tasks, predictions
+    )
     assert result["exact_accuracy"] == 2 / 3
     assert result["species_macro"]["exact_accuracy"] == 0.5
     assert result["species_macro"]["species"] == 2
@@ -501,12 +380,10 @@ def test_coverage_distinguishes_abstention_from_wrong_answer():
         "a": {"status": "answered", "predictions": [{"taxon": "Species alpha"}]},
         "b": {"status": "answered", "predictions": [{"taxon": "UNKNOWN"}]},
     }
-    tasks[1]["location"] = {
-        "basis": "species_occurrence_example", "is_observation_location": False
-    }
-    result, _ = ScoreEngine(
-        FakeResolver(), MemoryCache(), UnusedExtractor(), MemoryCache()
-    ).score(tasks, predictions)
+    tasks[1]["location"] = {"basis": "species_occurrence_example", "is_observation_location": False}
+    result, _ = ScoreEngine(FakeResolver(), MemoryCache(), UnusedExtractor(), MemoryCache()).score(
+        tasks, predictions
+    )
     assert result["overall"] == {"exact": 1, "abstain": 1}
     assert result["coverage"] == 0.5
     assert result["exact_accuracy"] == 0.5

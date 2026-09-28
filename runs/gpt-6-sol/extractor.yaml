@@ -1,0 +1,9 @@
+id: published-answer-extractor
+model: gpt-6-sol
+base_url: https://azure-endpoint.invalid/openai/v1
+api_key_env: CSI_REPLAY_UNUSED_KEY
+max_output_tokens: 1000
+reasoning_effort: medium
+temperature: null
+timeout_s: 120.0
+token_param: max_completion_tokens

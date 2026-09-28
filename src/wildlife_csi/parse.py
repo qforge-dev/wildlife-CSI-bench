@@ -23,6 +23,7 @@ def user_prompt(location: dict) -> str:
         f"The photo's country is {country}. Which species most likely left it?"
     )
 
+
 # A Latin binomial in parentheses or prose is usually more precise than the
 # surrounding common name. Multiple distinct binomials make the answer ambiguous.
 BINOMIAL = re.compile(r"\b([A-Z][a-z]{2,} [a-z][a-z-]{2,}(?: [a-z][a-z-]{2,})?)\b")

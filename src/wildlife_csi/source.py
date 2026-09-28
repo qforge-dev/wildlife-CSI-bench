@@ -1,8 +1,4 @@
-"""Frozen iNaturalist observation taxonomy for AnimalClue image filenames.
-
-The YOLO class number locates a trace; info_*.csv is not an ordered class map.
-Species truth comes from the observation ID embedded in the source filename.
-"""
+"""iNaturalist name resolution and source-photo references."""
 
 from __future__ import annotations
 
@@ -69,17 +65,6 @@ class INaturalist:
                 time.sleep(0.5 * 2**attempt)
         raise AssertionError("unreachable")
 
-    def observations(self, ids: list[str], require_all: bool = True) -> dict[str, dict]:
-        result = {}
-        for offset in range(0, len(ids), 10):
-            chunk = ids[offset : offset + 10]
-            for row in self._get("observations/" + ",".join(chunk)):
-                result[str(row["id"])] = row
-        missing = set(ids) - result.keys()
-        if missing and require_all:
-            raise ValueError(f"missing iNaturalist observations: {sorted(missing)}")
-        return result
-
     def taxa(self, ids: list[int]) -> dict[int, dict]:
         need = sorted(set(ids) - self._taxa.keys())
         for offset in range(0, len(need), 10):
@@ -90,15 +75,6 @@ class INaturalist:
         if missing:
             raise ValueError(f"missing iNaturalist taxa: {sorted(missing)}")
         return {i: self._taxa[i] for i in ids}
-
-    def places(self, ids: list[int]) -> dict[int, dict]:
-        """Look up public place records, including their administrative level."""
-        result = {}
-        for offset in range(0, len(ids), 50):
-            chunk = ids[offset : offset + 50]
-            for row in self._get("places/" + ",".join(map(str, chunk))):
-                result[int(row["id"])] = row
-        return result
 
     def resolve_name(self, name: str) -> dict | None:
         """Resolve an exact scientific/common name; ambiguous names remain unresolved."""
@@ -148,47 +124,3 @@ class INaturalist:
                 for rank in ("species", "genus", "family")
             },
         }
-
-
-def source_record(observation: dict, taxon: dict, image_path: str) -> dict:
-    obs_id, photo_index = photo_reference(image_path)
-    if str(observation.get("id")) != obs_id:
-        raise ValueError(f"observation ID mismatch for {image_path}")
-    if observation.get("quality_grade") != "research":
-        raise ValueError(f"observation {obs_id} is not research grade")
-    if int(observation.get("taxon", {}).get("id", -1)) != int(taxon["id"]):
-        raise ValueError(f"taxon ID mismatch for observation {obs_id}")
-    if taxon.get("rank") not in ("species", "subspecies", "variety"):
-        raise ValueError(f"observation {obs_id} is not identified to species")
-    photos = observation.get("photos") or []
-    if photo_index >= len(photos):
-        raise ValueError(f"photo index {photo_index} missing from observation {obs_id}")
-    ancestors = taxon.get("ancestors") or []
-    lineage = ancestors + [taxon]
-
-    def rank(which: str) -> dict:
-        candidates = [a for a in lineage if a.get("rank") == which]
-        if not candidates:
-            raise ValueError(f"observation {obs_id} has no {which} ancestor")
-        return candidates[-1]
-
-    species, genus, family = (rank(r) for r in ("species", "genus", "family"))
-    photo = photos[photo_index]
-    return {
-        "observation_id": obs_id,
-        "observation_url": f"https://www.inaturalist.org/observations/{obs_id}",
-        "quality_grade": observation["quality_grade"],
-        "observed_taxon_id": int(taxon["id"]),
-        "observed_taxon": taxon["name"],
-        "observed_rank": taxon["rank"],
-        "species_id": int(species["id"]),
-        "species": species["name"],
-        "genus_id": int(genus["id"]),
-        "genus": genus["name"],
-        "family_id": int(family["id"]),
-        "family": family["name"],
-        "photo_index": photo_index,
-        "photo_id": int(photo["id"]),
-        "photo_license": photo.get("license_code"),
-        "photo_attribution": photo.get("attribution"),
-    }

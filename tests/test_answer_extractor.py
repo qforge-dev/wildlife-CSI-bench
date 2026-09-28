@@ -3,12 +3,12 @@ import json
 
 import httpx
 import pytest
+from helpers import build_task, write_manifest
 
 from wildlife_csi.answer_extractor import TextAnswerExtractor, validate_decision
-from wildlife_csi.suite import build_task, write_manifest
+from wildlife_csi.provider_record import ProviderCallError
 from wildlife_csi.score import score_run
 from wildlife_csi.scoring import ScoreEngine
-from wildlife_csi.provider_record import ProviderCallError
 from wildlife_csi.storage import JsonlExtractionStore, JsonlResolutionStore
 
 
@@ -326,10 +326,19 @@ def test_score_run_writes_separate_extractor_audit_and_review_queue(tmp_path):
         },
     }
     suite_task = build_task(
-        "egg", sha, source,
-        {"country": "United States", "level": "country", "basis": "observation_public_place",
-         "is_observation_location": True, "source": "iNaturalist", "source_place_id": 1,
-         "geoprivacy": "open", "observation_id": "123"},
+        "egg",
+        sha,
+        source,
+        {
+            "country": "United States",
+            "level": "country",
+            "basis": "observation_public_place",
+            "is_observation_location": True,
+            "source": "iNaturalist",
+            "source_place_id": 1,
+            "geoprivacy": "open",
+            "observation_id": "123",
+        },
     )
     write_manifest(tmp_path, [suite_task], 42)
     manifest = json.loads((tmp_path / "manifest.json").read_text())

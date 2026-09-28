@@ -33,11 +33,11 @@ def resolve_model(
 ) -> dict[str, Any]:
     """Resolve env-backed fields without including secret values."""
     key_env = cfg.get("api_key_env", "")
-    if require_key and key_env and not os.environ.get(key_env):
+    adapter = cfg.get("adapter", "openai-compatible")
+    if require_key and key_env and adapter != "bedrock-converse" and not os.environ.get(key_env):
         raise RuntimeError(f"missing required env var: {key_env} (model {cfg.get('id')})")
     base_env = cfg.get("base_url_env", "")
     base = os.environ.get(base_env, "") or cfg.get("base_url", "")
-    adapter = cfg.get("adapter", "openai-compatible")
     if require_base and adapter == "openai-compatible" and not base:
         raise RuntimeError(f"missing base URL for model {cfg.get('id')} ({base_env or 'base_url'})")
     base_configured = bool(base)

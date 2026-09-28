@@ -15,11 +15,15 @@ def test_registry_has_gpt6_sol():
         "grok",
         "luna",
         "muse",
+        "opus",
     } <= set(reg)
     assert "sol" not in reg and "terra" not in reg
     cfg = reg["gpt-6-sol"]
     assert cfg["model"] == "gpt-6-sol"
     assert cfg["base_url_env"] == "GPT6_SOL_BASE_URL"
+    assert reg["opus"]["adapter"] == "bedrock-converse"
+    assert reg["opus"]["model"] == "global.anthropic.claude-opus-5-5"
+    assert reg["opus"]["api_key_env"] == "OPUS55_API_KEY"
 
 
 def test_describe_safe_no_secret(tmp_path, monkeypatch):

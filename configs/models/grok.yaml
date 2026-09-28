@@ -8,7 +8,6 @@ base_url_env: OPENROUTER_BASE_URL
 api_key_env: OPENROUTER_API_KEY
 model_env: GROK_MODEL
 model: x-ai/grok-4.6
-# Open-ended animal identification; no candidate list is sent.
 max_output_tokens: 16000
 token_param: max_tokens
 structured_output: false

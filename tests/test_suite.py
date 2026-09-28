@@ -1,30 +1,19 @@
 import hashlib
-import io
 import json
 
-import pytest
 import httpx
-from PIL import Image
+import pytest
+from helpers import build_task, write_manifest
 
-from wildlife_csi.animalclue import (
-    AccessPending,
-    crop_box,
-    observation_id,
-    parse_yolo_label,
-    require_access,
-)
 from wildlife_csi.parse import SYSTEM_PROMPT, parse_answer, user_prompt
-from wildlife_csi.suite import (
-    _validate_task,
-    build_task,
-    prepare_image,
-    validate_suite,
-    write_manifest,
-)
 from wildlife_csi.run import run_suite
 from wildlife_csi.score import score_run
 from wildlife_csi.scoring import extract_answer
-from wildlife_csi.source import INaturalist, photo_reference, source_record
+from wildlife_csi.source import INaturalist, photo_reference
+from wildlife_csi.suite import (
+    _validate_task,
+    validate_suite,
+)
 
 
 def sample_truth():
@@ -53,16 +42,6 @@ def sample_location():
         "geoprivacy": "open",
         "observation_id": "123",
     }
-
-
-def test_selected_dataset_access_fails_before_build(monkeypatch):
-    monkeypatch.setattr(
-        "wildlife_csi.animalclue.check_access",
-        lambda: {"egg": {"bytes": "ok"}, "bone": {"bytes": "pending-author-review"}},
-    )
-    require_access(["egg"])
-    with pytest.raises(AccessPending, match="bone.*pending-author-review"):
-        require_access(["egg", "bone"])
 
 
 def sample_suite(tmp_path):
@@ -102,7 +81,6 @@ def test_source_taxonomy_overrides_class_mapping():
     assert task["correct_taxon"] == "Vulpes vulpes"
     assert task["correct_family"] == "Canidae"
     assert photo_reference("species/test/images/123_0_jpeg.rf.abc.jpg") == ("123", 0)
-    assert observation_id("123_0_jpeg.rf.abc.jpg") == "123"
 
 
 def test_official_protocol_rejects_other_prompts_and_versions():
@@ -120,28 +98,13 @@ def test_official_protocol_rejects_other_prompts_and_versions():
 
 def test_prompt_does_not_reveal_location_provenance():
     observed = sample_location()
-    estimated = {**observed, "basis": "species_occurrence_example", "is_observation_location": False}
+    estimated = {
+        **observed,
+        "basis": "species_occurrence_example",
+        "is_observation_location": False,
+    }
     assert user_prompt(observed) == user_prompt(estimated)
     assert "private" not in user_prompt(estimated)
-
-
-def test_source_record_checks_observation_photo_and_rank():
-    lineage = [
-        {"id": 3, "name": "Canidae", "rank": "family"},
-        {"id": 2, "name": "Vulpes", "rank": "genus"},
-    ]
-    taxon = {"id": 1, "name": "Vulpes vulpes", "rank": "species", "ancestors": lineage}
-    obs = {
-        "id": 123,
-        "quality_grade": "research",
-        "taxon": {"id": 1},
-        "photos": [{"id": 9, "license_code": "cc-by", "attribution": "X"}],
-    }
-    assert source_record(obs, taxon, "123_0.jpg")["species"] == "Vulpes vulpes"
-    with pytest.raises(ValueError, match="photo index"):
-        source_record(obs, taxon, "123_1.jpg")
-    with pytest.raises(ValueError, match="not research"):
-        source_record({**obs, "quality_grade": "needs_id"}, taxon, "123_0.jpg")
 
 
 def test_inaturalist_throttling_cools_down_then_retries():
@@ -186,7 +149,9 @@ def test_location_snapshot_and_wrong_protocol_are_rejected(tmp_path):
     locations.write_text(locations.read_text().replace("United States", "Canada"))
     with pytest.raises(ValueError, match="location snapshot hash"):
         validate_suite(tmp_path / "tasks.jsonl")
-    locations.write_text(json.dumps({"task_id": task["task_id"], "location": task["location"]}) + "\n")
+    locations.write_text(
+        json.dumps({"task_id": task["task_id"], "location": task["location"]}) + "\n"
+    )
     manifest_path = tmp_path / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     manifest["suite"] = "wildlife-csi-v1"
@@ -258,7 +223,10 @@ def test_injected_adapter_run_resumes_from_recorded_prediction(tmp_path):
 
     adapter = FixedAdapter()
     result = run_suite(
-        tmp_path / "tasks.jsonl", output, "fixture", images_dir=tmp_path / "images",
+        tmp_path / "tasks.jsonl",
+        output,
+        "fixture",
+        images_dir=tmp_path / "images",
         adapter=adapter,
     )
     assert result["written"] == 1
@@ -266,19 +234,17 @@ def test_injected_adapter_run_resumes_from_recorded_prediction(tmp_path):
     assert row["predictions"][0]["taxon"] == task["correct_taxon"]
     assert (
         run_suite(
-            tmp_path / "tasks.jsonl", output, "fixture", images_dir=tmp_path / "images",
+            tmp_path / "tasks.jsonl",
+            output,
+            "fixture",
+            images_dir=tmp_path / "images",
             adapter=adapter,
         )["already_done"]
         == 1
     )
 
 
-def test_image_and_parser():
-    img = Image.new("RGB", (640, 480), "brown")
-    buf = io.BytesIO()
-    img.save(buf, "PNG")
-    payload, meta = prepare_image(buf.getvalue())
-    assert payload[:2] == b"\xff\xd8" and meta["width"] == 640
+def test_parser():
     assert parse_answer("Vulpes vulpes")["answer"] == "Vulpes vulpes"
     assert parse_answer("a\nb")["status"] == "invalid"
     assert parse_answer("ANIMAL: Blue-and-yellow macaw")["answer"] == "Blue-and-yellow macaw"
@@ -303,8 +269,6 @@ def test_image_and_parser():
     assert parse_answer("ANIMAL: fox or wolf")["status"] == "invalid"
     assert "United States" in user_prompt(sample_location())
     assert "ANIMAL: <name>" in SYSTEM_PROMPT
-    assert parse_yolo_label("3 0.5 0.5 0.2 0.2\n")[0][0] == 3
-    assert crop_box(1000, 800, 0.5, 0.5, 0.2, 0.2)[2] > 500
 
 
 def test_resolver_accepts_exact_matched_common_name_and_species_over_subspecies():
@@ -351,14 +315,24 @@ def test_resolver_accepts_exact_matched_common_name_and_species_over_subspecies(
         "taxa/482": [species],
         "taxa/autocomplete?q=Sceloporus%20undulatus": [
             {"id": 1690776, "name": "Sceloporus undulatus", "rank": "complex"},
-            {"id": 36142, "name": "Sceloporus undulatus", "rank": "species",
-             "ancestor_ids": [1690776, 36142]},
+            {
+                "id": 36142,
+                "name": "Sceloporus undulatus",
+                "rank": "species",
+                "ancestor_ids": [1690776, 36142],
+            },
         ],
         "taxa/36142": [
-            {"id": 36142, "name": "Sceloporus undulatus", "rank": "species",
-             "ancestors": [{"id": 999, "rank": "family"},
-                           {"id": 36141, "rank": "genus"},
-                           {"id": 1690776, "rank": "complex"}]}
+            {
+                "id": 36142,
+                "name": "Sceloporus undulatus",
+                "rank": "species",
+                "ancestors": [
+                    {"id": 999, "rank": "family"},
+                    {"id": 36141, "rank": "genus"},
+                    {"id": 1690776, "rank": "complex"},
+                ],
+            }
         ],
         "taxa/autocomplete?q=Pica%20pica": [
             {"id": 891696, "name": "Pica pica", "rank": "species", "matched_term": "Pica pica"},

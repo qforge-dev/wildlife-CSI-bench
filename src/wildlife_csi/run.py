@@ -7,8 +7,8 @@ from typing import Any
 
 from wildlife_csi.execution import RunEngine, RunSettings
 from wildlife_csi.s3_suite import S3ImageStore
-from wildlife_csi.suite import validate_suite
 from wildlife_csi.storage import JsonlPredictionStore, LocalImageStore
+from wildlife_csi.suite import validate_suite
 
 
 def run_suite(

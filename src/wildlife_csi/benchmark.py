@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import yaml
@@ -20,6 +21,7 @@ def run_benchmark(
     registry_dir: str | Path = "configs/models",
     max_cost_per_model: float | None = None,
     max_workers: int = 2,
+    extractor_config: str | Path = "configs/extractors/answer.yaml",
 ) -> dict:
     """Fail credential preflight before calls; resume each model in its own folder."""
     registry = load_registry(registry_dir)
@@ -39,22 +41,23 @@ def run_benchmark(
         if cfg.get("adapter", "openai-compatible") not in ("openai-compatible", "bedrock-converse"):
             raise ValueError(f"unsupported adapter for {model_id}: {cfg.get('adapter')}")
         try:
-            resolve_model(cfg)
+            resolved = resolve_model(cfg)
         except RuntimeError as exc:
             missing.append(str(exc))
-        if cfg.get("adapter") == "bedrock-converse":
+            continue
+        if cfg.get("adapter") == "bedrock-converse" and not (
+            resolved["has_key"] or os.environ.get("AWS_BEARER_TOKEN_BEDROCK")
+        ):
             try:
                 import boto3
 
                 if boto3.Session().get_credentials() is None:
                     missing.append(f"missing AWS credentials for {model_id}")
-            except ImportError:
-                missing.append(f"install wildlife-csi[bedrock] for {model_id}")
             except Exception as exc:
                 missing.append(f"AWS credential check failed for {model_id}: {type(exc).__name__}")
     if missing:
         raise RuntimeError("model preflight failed:\n" + "\n".join(missing))
-    extractor_cfg = yaml.safe_load(Path("configs/extractors/answer.yaml").read_text())
+    extractor_cfg = yaml.safe_load(Path(extractor_config).read_text())
     resolve_model(extractor_cfg)
     tasks, manifest = validate_suite(tasks_path)
     output = Path(out_dir)
@@ -71,7 +74,7 @@ def run_benchmark(
         )
         result = {"run": run, "predictions": str(predictions)}
         if run["already_done"] + run["written"] == len(tasks):
-            result["score"] = score_run(tasks_path, predictions)
+            result["score"] = score_run(tasks_path, predictions, extractor_config=extractor_config)
         else:
             result["score"] = None
             result["incomplete"] = True

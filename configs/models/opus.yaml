@@ -1,0 +1,21 @@
+# Model registry: one file per model. The adapter maps OPUS55_API_KEY to
+# Bedrock's bearer-token environment variable when provided.
+id: opus
+display_name: Claude Opus 5.5 (Bedrock)
+adapter: bedrock-converse
+api_key_env: OPUS55_API_KEY
+region_env: OPUS55_REGION
+region: us-east-1
+model_env: OPUS55_MODEL
+model: global.anthropic.claude-opus-5-5
+structured_output: false
+reasoning_effort: high
+max_output_tokens: 16000
+# USD per 1k tokens. AWS pricing provided by the user: $4 input, $20 output,
+# $0.20 cache reads per million tokens. Cache writes are not requested here.
+price_per_1k_requests: 0.0
+price_input_1k_tokens: 0.004
+price_cached_1k_tokens: 0.0002
+price_output_1k_tokens: 0.02
+timeout_s: 180
+notes: AWS Bedrock standard pricing supplied by user; batch and cache writes are not used.

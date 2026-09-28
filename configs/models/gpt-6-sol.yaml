@@ -7,7 +7,6 @@ base_url_env: GPT6_SOL_BASE_URL
 api_key_env: GPT6_SOL_API_KEY
 model_env: GPT6_SOL_MODEL
 model: gpt-6-sol
-# Open answer: one animal name, with no candidate list.
 structured_output: false
 reasoning_effort: high
 max_output_tokens: 16000

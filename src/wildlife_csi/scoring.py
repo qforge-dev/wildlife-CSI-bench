@@ -322,13 +322,14 @@ class ScoreEngine:
                     basis: {
                         "tasks": sum(basis_counts.values()),
                         "exact_accuracy": basis_counts["exact"] / sum(basis_counts.values()),
-                        "genus_accuracy": (
-                            basis_counts["exact"] + basis_counts["genus_only"]
-                        ) / sum(basis_counts.values()),
+                        "genus_accuracy": (basis_counts["exact"] + basis_counts["genus_only"])
+                        / sum(basis_counts.values()),
                         "family_accuracy": (
-                            basis_counts["exact"] + basis_counts["genus_only"]
+                            basis_counts["exact"]
+                            + basis_counts["genus_only"]
                             + basis_counts["family_only"]
-                        ) / sum(basis_counts.values()),
+                        )
+                        / sum(basis_counts.values()),
                     }
                     for basis, basis_counts in per_location_basis.items()
                 },

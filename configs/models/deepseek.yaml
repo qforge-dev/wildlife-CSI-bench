@@ -1,11 +1,11 @@
-# OpenRouter endpoint and key are supplied by DEEPSEEK_v4.1_FLASH_* in .env.
+# OpenRouter endpoint and key are supplied by DEEPSEEK_* in .env.
 id: deepseek
 display_name: DeepSeek V4.1 Flash (OpenRouter)
 adapter: openai-compatible
 base_url: https://openrouter.ai/api/v1
-base_url_env: DEEPSEEK_v4.1_FLASH_BASE_URL
-api_key_env: DEEPSEEK_v4.1_FLASH_API_KEY
-model_env: DEEPSEEK_v4.1_FLASH_MODEL
+base_url_env: DEEPSEEK_BASE_URL
+api_key_env: DEEPSEEK_API_KEY
+model_env: DEEPSEEK_MODEL
 model: deepseek/deepseek-v4.1-flash
 structured_output: false
 max_output_tokens: 16000

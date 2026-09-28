@@ -18,13 +18,6 @@ def _ensure_local_tasks(path: str) -> None:
 
 
 @app.command()
-def check_access():
-    from wildlife_csi.animalclue import check_access as check
-
-    typer.echo(json.dumps(check(), indent=2))
-
-
-@app.command()
 def models(registry: str = "configs/models"):
     import dotenv
 
@@ -40,6 +33,7 @@ def validate(
     images: str | None = None,
     cache_dir: str = "data/work/csi-s3-cache",
 ):
+    """Validate the frozen metadata and download/check every image anonymously."""
     from wildlife_csi.suite import validate_suite
 
     _ensure_local_tasks(tasks)
@@ -95,12 +89,13 @@ def run(
 def benchmark(
     tasks: str = DEFAULT_TASKS,
     out: str = f"{DEFAULT_SUITE}/runs",
-    models: str = "all",
+    models: str = typer.Option(..., help="Comma-separated model IDs, or all."),
     max_cost_per_model: float | None = None,
     max_workers: int = 2,
     registry: str = "configs/models",
+    extractor_config: str = "configs/extractors/answer.yaml",
 ):
-    """Run and score every configured model, or a comma-separated subset."""
+    """Run the selected models and score their completed predictions."""
     import dotenv
 
     dotenv.load_dotenv(Path(".env"))
@@ -115,6 +110,7 @@ def benchmark(
                 out,
                 selected,
                 registry_dir=registry,
+                extractor_config=extractor_config,
                 max_cost_per_model=max_cost_per_model,
                 max_workers=max_workers,
             ),
@@ -128,6 +124,7 @@ def score(
     tasks: str,
     predictions: str,
     offline: bool = False,
+    extractor_config: str = "configs/extractors/answer.yaml",
 ):
     """Score recorded predictions with the official taxonomy and answer extractor."""
     import dotenv
@@ -142,6 +139,7 @@ def score(
                 tasks,
                 predictions,
                 offline=offline,
+                extractor_config=extractor_config,
             ),
             indent=2,
         )

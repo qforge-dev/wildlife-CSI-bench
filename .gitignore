@@ -1,5 +1,7 @@
 # Secrets - never commit
 .env
+.env.*
+!.env.example
 .DS_Store
 
 # Python
@@ -15,3 +17,5 @@ data/**/qa-*.jpg
 data/**/build-checkpoint.json
 data/**/build-checkpoint.jsonl
 *.egg-info/
+build/
+dist/

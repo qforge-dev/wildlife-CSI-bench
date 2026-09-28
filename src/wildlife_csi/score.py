@@ -6,12 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 
-from wildlife_csi.execution import code_hash
 from wildlife_csi.answer_extractor import load_extractor
-from wildlife_csi.suite import validate_suite
+from wildlife_csi.execution import code_hash
 from wildlife_csi.scoring import ScoreEngine, align_predictions
 from wildlife_csi.source import INaturalist
 from wildlife_csi.storage import JsonlExtractionStore, JsonlResolutionStore
+from wildlife_csi.suite import validate_suite
 from wildlife_csi.taxonomy_cache import CachedTaxonResolver
 
 

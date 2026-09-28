@@ -3,11 +3,10 @@ id: astra
 display_name: Astra (vision)
 adapter: openai-compatible
 # Set your own endpoint and credentials through the variables below.
-base_url_env: ASTRA_BASE_URL
-api_key_env: ASTRA_API_KEY
-model_env: ASTRA_MODEL
+base_url_env: GPT6_ASTRA_BASE_URL
+api_key_env: GPT6_ASTRA_API_KEY
+model_env: GPT6_ASTRA_MODEL
 model: gpt-6-astra
-# Open-ended animal identification; no candidate list is sent.
 structured_output: false
 reasoning_effort: high
 reasoning_api: openai

@@ -76,7 +76,7 @@
     "image_prefix": "media/sha256/",
     "kind": "s3",
     "metadata": "local",
-    "private": true,
+    "public_read": true,
     "region": "us-east-1"
   },
   "suite": "wildlife-csi-country-v1",

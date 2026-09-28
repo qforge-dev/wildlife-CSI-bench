@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="568" height="400" viewBox="0 0 568 400" role="img" aria-labelledby="title description">
+<title id="title">Accuracy versus cost</title>
+<desc id="description">Cost uses a logarithmic axis; accuracy uses a linear axis. Claude Opus 5.5: $22.92, 37.15% exact species; Muse Spark 1.3: $0.77, 33.35% exact species; GPT-6 Astra: $102.43, 31.70% exact species; GLM 5.3 Flash: $1.73, 21.75% exact species; GPT-6 Sol: $27.89, 21.50% exact species; DeepSeek V4.1 Flash: $12.19, 13.55% exact species; GPT-6 Luna: $1.78, 8.20% exact species</desc>
+<rect width="568" height="400" fill="#111111"/>
+<text x="0" y="28" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" text-anchor="start">Accuracy vs. cost</text>
+<text x="0" y="49" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">2,000 photos per run · high reasoning</text>
+<text x="0" y="80" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">Exact species (%)</text>
+<line x1="0" y1="342.00" x2="568" y2="342.00" stroke="#38383d"/>
+<text x="0" y="337.0" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">0</text>
+<line x1="0" y1="286.89" x2="568" y2="286.89" stroke="#38383d"/>
+<text x="0" y="281.8888888888889" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">10</text>
+<line x1="0" y1="231.78" x2="568" y2="231.78" stroke="#38383d"/>
+<text x="0" y="226.77777777777777" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">20</text>
+<line x1="0" y1="176.67" x2="568" y2="176.67" stroke="#38383d"/>
+<text x="0" y="171.66666666666669" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">30</text>
+<line x1="0" y1="121.56" x2="568" y2="121.56" stroke="#38383d"/>
+<text x="0" y="116.55555555555557" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">40</text>
+<line x1="65.71" y1="94" x2="65.71" y2="342" stroke="#38383d" stroke-dasharray="2 4"/>
+<text x="65.7114125373716" y="360" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="middle">$1</text>
+<line x1="284.00" y1="94" x2="284.00" y2="342" stroke="#38383d" stroke-dasharray="2 4"/>
+<text x="284.0" y="360" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="middle">$10</text>
+<line x1="502.29" y1="94" x2="502.29" y2="342" stroke="#38383d" stroke-dasharray="2 4"/>
+<text x="502.28858746262836" y="360" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="middle">$100</text>
+<circle cx="362.62" cy="137.26" r="5.5" fill="#6ee7b7" stroke="#111111" stroke-width="1.5"/>
+<text x="362.62211890284914" y="123.26222222222225" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">Claude Opus 5.5</text>
+<circle cx="40.46" cy="158.20" r="5.5" fill="#6ee7b7" stroke="#111111" stroke-width="1.5"/>
+<text x="49.4603174345332" y="148.20444444444442" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="start">Muse Spark 1.3*</text>
+<circle cx="504.56" cy="167.30" r="4.5" fill="#b4b4be" stroke="#111111" stroke-width="1.5"/>
+<text x="504.5605275451554" y="189.29777777777778" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="400" text-anchor="middle">GPT-6 Astra</text>
+<circle cx="117.56" cy="222.13" r="4.5" fill="#b4b4be" stroke="#111111" stroke-width="1.5"/>
+<text x="126.56381820873375" y="212.13333333333333" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="400" text-anchor="start">GLM 5.3 Flash</text>
+<circle cx="381.23" cy="223.51" r="4.5" fill="#b4b4be" stroke="#111111" stroke-width="1.5"/>
+<text x="390.2284678692848" y="213.51111111111112" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="400" text-anchor="start">GPT-6 Sol</text>
+<circle cx="302.78" cy="267.32" r="4.5" fill="#b4b4be" stroke="#111111" stroke-width="1.5"/>
+<text x="311.78380586293514" y="271.32444444444445" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="400" text-anchor="start">DeepSeek V4.1 Flash</text>
+<circle cx="120.47" cy="296.81" r="4.5" fill="#b4b4be" stroke="#111111" stroke-width="1.5"/>
+<text x="129.46745198884543" y="300.8088888888889" fill="#f4f4f5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="400" text-anchor="start">GPT-6 Luna</text>
+<text x="284.0" y="390" fill="#b4b4be" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Estimated run cost · USD · log scale</text>
+</svg>

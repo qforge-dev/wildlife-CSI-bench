@@ -1,0 +1,166 @@
+{
+  "answered": 1896,
+  "code_sha256": "c6ebf75ecfb0aab3f41d0dd9e016e838a7de29a8bbc4fb4da77f5c354f646fc7",
+  "coverage": 0.948,
+  "exact_accuracy": 0.082,
+  "exact_accuracy_answered": 0.08649789029535865,
+  "extractions_sha256": "fc6ac4a63d77f92ac405b6955e2c6027d18155def530291168d0f53d60b6f680",
+  "extractor_assisted": 0,
+  "extractor_attempted": 5,
+  "extractor_config": {
+    "endpoint": "https://azure-endpoint.invalid/openai/v1",
+    "model": "gpt-6-sol",
+    "parameters": {
+      "max_output_tokens": 1000,
+      "reasoning_effort": "medium",
+      "temperature": null,
+      "timeout_s": 120.0,
+      "token_param": "max_completion_tokens"
+    },
+    "prompt_version": "answer-extraction-v2",
+    "system_prompt_sha256": "d3cd28e37de87f8addacaebf6cae96697c634e623c852cbec4a8ad2e5f92e4d3"
+  },
+  "extractor_estimated_cost_usd": 0.003512,
+  "extractor_identity": "c4423627a1f81ddcc47076d0e56d6a0c5a6542647558f35f8929371d53b4a644",
+  "extractor_provider_errors": 0,
+  "extractor_usage": {
+    "completion_tokens": 288,
+    "prompt_tokens": 316,
+    "total_tokens": 604
+  },
+  "family_accuracy": 0.1545,
+  "field_compliance": 1.0,
+  "genus_accuracy": 0.1005,
+  "model_id": "luna",
+  "overall": {
+    "exact": 164,
+    "family_only": 108,
+    "genus_only": 37,
+    "invalid": 2,
+    "transport_error": 102,
+    "unresolved": 3,
+    "wrong": 1584
+  },
+  "parse_methods": {
+    "field": 892,
+    "field_binomial": 1006
+  },
+  "per_location_basis": {
+    "observation_public_place": {
+      "exact_accuracy": 0.08174523570712136,
+      "family_accuracy": 0.15446339017051153,
+      "genus_accuracy": 0.10030090270812438,
+      "tasks": 1994
+    },
+    "observation_public_place_with_text_conflict": {
+      "exact_accuracy": 0.0,
+      "family_accuracy": 0.0,
+      "genus_accuracy": 0.0,
+      "tasks": 1
+    },
+    "observation_public_territory": {
+      "exact_accuracy": 0.0,
+      "family_accuracy": 0.0,
+      "genus_accuracy": 0.0,
+      "tasks": 1
+    },
+    "species_occurrence_example": {
+      "exact_accuracy": 0.25,
+      "family_accuracy": 0.25,
+      "genus_accuracy": 0.25,
+      "tasks": 4
+    }
+  },
+  "per_type": {
+    "bone": {
+      "exact": 28,
+      "family_only": 17,
+      "genus_only": 5,
+      "invalid": 1,
+      "transport_error": 71,
+      "unresolved": 3,
+      "wrong": 275
+    },
+    "egg": {
+      "exact": 32,
+      "family_only": 13,
+      "genus_only": 4,
+      "invalid": 1,
+      "wrong": 350
+    },
+    "feather": {
+      "exact": 44,
+      "family_only": 43,
+      "genus_only": 11,
+      "transport_error": 10,
+      "wrong": 292
+    },
+    "feces": {
+      "exact": 41,
+      "family_only": 29,
+      "genus_only": 11,
+      "transport_error": 21,
+      "wrong": 298
+    },
+    "footprint": {
+      "exact": 19,
+      "family_only": 6,
+      "genus_only": 6,
+      "wrong": 369
+    }
+  },
+  "per_type_coverage": {
+    "bone": 0.82,
+    "egg": 0.9975,
+    "feather": 0.975,
+    "feces": 0.9475,
+    "footprint": 1.0
+  },
+  "per_type_species_macro": {
+    "bone": {
+      "exact_accuracy": 0.05895196506550218,
+      "family_accuracy": 0.11426491994177584,
+      "genus_accuracy": 0.0735080058224163,
+      "species": 229
+    },
+    "egg": {
+      "exact_accuracy": 0.0415625,
+      "family_accuracy": 0.09125,
+      "genus_accuracy": 0.0440625,
+      "species": 160
+    },
+    "feather": {
+      "exact_accuracy": 0.08830715532286214,
+      "family_accuracy": 0.20104712041884815,
+      "genus_accuracy": 0.11404886561954623,
+      "species": 191
+    },
+    "feces": {
+      "exact_accuracy": 0.07706698063840921,
+      "family_accuracy": 0.15360631432060004,
+      "genus_accuracy": 0.09706959706959707,
+      "species": 91
+    },
+    "footprint": {
+      "exact_accuracy": 0.03236111111111111,
+      "family_accuracy": 0.06232142857142857,
+      "genus_accuracy": 0.04069444444444444,
+      "species": 80
+    }
+  },
+  "predictions_sha256": "4981b10429affa2468f06d83487e2539770cf670e99c64a1a32b13f48f2cbf71",
+  "provisional_due_to_extractor": false,
+  "resolutions_sha256": "33748f2dcffffaa55d1018bf482e3976c41bd5f039a472ba5c13f4b4c85e5041",
+  "review_required": 5,
+  "score_complete": true,
+  "scorer_version": "wildlife-csi-country-scorer",
+  "source_sha256": "7d1da3490391555e8cd06f4631d1ce9b1f49da8872e2e9252c54b77ce4398fe8",
+  "species_macro": {
+    "exact_accuracy": 0.0537518269934696,
+    "family_accuracy": 0.12450000283739455,
+    "genus_accuracy": 0.06920288654565274,
+    "species": 534
+  },
+  "suite": "wildlife-csi-country-v1",
+  "tasks_hash": "b1d0ee38219c2f63542ef6d39249ab2735b976287bb775101f5eba73cd877b42"
+}

@@ -1,0 +1,375 @@
+{
+  "taskHash": "b1d0ee38219c2f63542ef6d39249ab2735b976287bb775101f5eba73cd877b42",
+  "models": [
+    {
+      "id": "opus",
+      "label": "Claude Opus 5.5",
+      "all": {
+        "species": 743,
+        "genus": 825,
+        "family": 1035
+      },
+      "outcomes": {
+        "exact": 743,
+        "sameGenus": 82,
+        "sameFamily": 210,
+        "wrongFamily": 959,
+        "failed": 6
+      },
+      "byTrace": {
+        "bone": {
+          "species": 154,
+          "genus": 168,
+          "family": 225
+        },
+        "egg": {
+          "species": 205,
+          "genus": 221,
+          "family": 239
+        },
+        "feather": {
+          "species": 146,
+          "genus": 173,
+          "family": 228
+        },
+        "feces": {
+          "species": 156,
+          "genus": 173,
+          "family": 225
+        },
+        "footprint": {
+          "species": 82,
+          "genus": 90,
+          "family": 118
+        }
+      },
+      "predictionsSha256": "1ffd99460d3f900fa4834c62bd91e5ef20b4ae92d31c074599508af821559b13",
+      "estimatedCostUsd": 22.917916,
+      "callsWithoutCost": 0
+    },
+    {
+      "id": "muse",
+      "label": "Muse Spark 1.3",
+      "all": {
+        "species": 667,
+        "genus": 751,
+        "family": 976
+      },
+      "outcomes": {
+        "exact": 667,
+        "sameGenus": 84,
+        "sameFamily": 225,
+        "wrongFamily": 1022,
+        "failed": 2
+      },
+      "byTrace": {
+        "bone": {
+          "species": 128,
+          "genus": 139,
+          "family": 185
+        },
+        "egg": {
+          "species": 180,
+          "genus": 194,
+          "family": 240
+        },
+        "feather": {
+          "species": 155,
+          "genus": 173,
+          "family": 230
+        },
+        "feces": {
+          "species": 153,
+          "genus": 175,
+          "family": 232
+        },
+        "footprint": {
+          "species": 51,
+          "genus": 70,
+          "family": 89
+        }
+      },
+      "predictionsSha256": "671d1dc459f21f0f40a5e51f2faa49125c83d091ea3986e08445378b46160b7c",
+      "estimatedCostUsd": 0.7661652,
+      "callsWithoutCost": 0
+    },
+    {
+      "id": "astra",
+      "label": "GPT-6 Astra",
+      "all": {
+        "species": 634,
+        "genus": 695,
+        "family": 899
+      },
+      "outcomes": {
+        "exact": 634,
+        "sameGenus": 61,
+        "sameFamily": 204,
+        "wrongFamily": 1027,
+        "failed": 74
+      },
+      "byTrace": {
+        "bone": {
+          "species": 128,
+          "genus": 137,
+          "family": 181
+        },
+        "egg": {
+          "species": 175,
+          "genus": 187,
+          "family": 211
+        },
+        "feather": {
+          "species": 143,
+          "genus": 157,
+          "family": 210
+        },
+        "feces": {
+          "species": 125,
+          "genus": 143,
+          "family": 192
+        },
+        "footprint": {
+          "species": 63,
+          "genus": 71,
+          "family": 105
+        }
+      },
+      "predictionsSha256": "f3d6a650990aad2ce54158eb374d66effa19aade3101f6a240b2e368827923c6",
+      "estimatedCostUsd": 102.42547,
+      "callsWithoutCost": 74
+    },
+    {
+      "id": "glm",
+      "label": "GLM 5.3 Flash",
+      "all": {
+        "species": 435,
+        "genus": 504,
+        "family": 716
+      },
+      "outcomes": {
+        "exact": 435,
+        "sameGenus": 69,
+        "sameFamily": 212,
+        "wrongFamily": 1274,
+        "failed": 10
+      },
+      "byTrace": {
+        "bone": {
+          "species": 74,
+          "genus": 85,
+          "family": 128
+        },
+        "egg": {
+          "species": 120,
+          "genus": 131,
+          "family": 159
+        },
+        "feather": {
+          "species": 94,
+          "genus": 113,
+          "family": 180
+        },
+        "feces": {
+          "species": 108,
+          "genus": 126,
+          "family": 175
+        },
+        "footprint": {
+          "species": 39,
+          "genus": 49,
+          "family": 74
+        }
+      },
+      "predictionsSha256": "d5b3ded7663383617da68e1f0fa618c2609d91020f98edaf69b38e5c7f2c835c",
+      "estimatedCostUsd": 1.72798758,
+      "callsWithoutCost": 0
+    },
+    {
+      "id": "sol",
+      "label": "GPT-6 Sol",
+      "all": {
+        "species": 430,
+        "genus": 485,
+        "family": 651
+      },
+      "outcomes": {
+        "exact": 430,
+        "sameGenus": 55,
+        "sameFamily": 166,
+        "wrongFamily": 1249,
+        "failed": 100
+      },
+      "byTrace": {
+        "bone": {
+          "species": 65,
+          "genus": 74,
+          "family": 102
+        },
+        "egg": {
+          "species": 143,
+          "genus": 153,
+          "family": 177
+        },
+        "feather": {
+          "species": 96,
+          "genus": 112,
+          "family": 159
+        },
+        "feces": {
+          "species": 84,
+          "genus": 97,
+          "family": 149
+        },
+        "footprint": {
+          "species": 42,
+          "genus": 49,
+          "family": 64
+        }
+      },
+      "predictionsSha256": "f237784100210fe9000e503b143c7a30e914b1702616a1ca99f04aa524933d28",
+      "estimatedCostUsd": 27.887688,
+      "callsWithoutCost": 99
+    },
+    {
+      "id": "deepseek",
+      "label": "DeepSeek V4.1 Flash",
+      "all": {
+        "species": 271,
+        "genus": 323,
+        "family": 483
+      },
+      "outcomes": {
+        "exact": 271,
+        "sameGenus": 52,
+        "sameFamily": 160,
+        "wrongFamily": 1450,
+        "failed": 67
+      },
+      "byTrace": {
+        "bone": {
+          "species": 28,
+          "genus": 32,
+          "family": 60
+        },
+        "egg": {
+          "species": 94,
+          "genus": 105,
+          "family": 144
+        },
+        "feather": {
+          "species": 76,
+          "genus": 95,
+          "family": 139
+        },
+        "feces": {
+          "species": 51,
+          "genus": 64,
+          "family": 96
+        },
+        "footprint": {
+          "species": 22,
+          "genus": 27,
+          "family": 44
+        }
+      },
+      "predictionsSha256": "664deee1a2eac778b27aa63887cfe2dd2208363cd20402cbce9605b71d13b259",
+      "estimatedCostUsd": 12.19130886,
+      "callsWithoutCost": 0
+    },
+    {
+      "id": "luna",
+      "label": "GPT-6 Luna",
+      "all": {
+        "species": 164,
+        "genus": 201,
+        "family": 309
+      },
+      "outcomes": {
+        "exact": 164,
+        "sameGenus": 37,
+        "sameFamily": 108,
+        "wrongFamily": 1584,
+        "failed": 107
+      },
+      "byTrace": {
+        "bone": {
+          "species": 28,
+          "genus": 33,
+          "family": 50
+        },
+        "egg": {
+          "species": 32,
+          "genus": 36,
+          "family": 49
+        },
+        "feather": {
+          "species": 44,
+          "genus": 55,
+          "family": 98
+        },
+        "feces": {
+          "species": 41,
+          "genus": 52,
+          "family": 81
+        },
+        "footprint": {
+          "species": 19,
+          "genus": 25,
+          "family": 31
+        }
+      },
+      "predictionsSha256": "054cb162d0a5ed4546577f9dd0af33eae7ce3b13971417527782300a23c25b0c",
+      "estimatedCostUsd": 1.7817322,
+      "callsWithoutCost": 102
+    }
+  ],
+  "overlap": {
+    "both": 235,
+    "glmOnly": 200,
+    "solOnly": 195,
+    "neither": 1370
+  },
+  "coverage": [
+    {
+      "id": "footprint",
+      "label": "Footprints",
+      "none": 265,
+      "one": 56,
+      "some": 79,
+      "all": 0
+    },
+    {
+      "id": "bone",
+      "label": "Bones",
+      "none": 164,
+      "one": 82,
+      "some": 151,
+      "all": 3
+    },
+    {
+      "id": "feces",
+      "label": "Droppings",
+      "none": 161,
+      "one": 71,
+      "some": 154,
+      "all": 14
+    },
+    {
+      "id": "feather",
+      "label": "Feathers",
+      "none": 154,
+      "one": 72,
+      "some": 156,
+      "all": 18
+    },
+    {
+      "id": "egg",
+      "label": "Eggs",
+      "none": 129,
+      "one": 56,
+      "some": 195,
+      "all": 20
+    }
+  ]
+}

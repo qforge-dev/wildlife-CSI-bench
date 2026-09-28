@@ -1,11 +1,11 @@
-# OpenRouter endpoint and key are supplied by GLM_5.3_FLASH_* in .env.
+# OpenRouter endpoint and key are supplied by GLM_* in .env.
 id: glm
 display_name: GLM 5.3 Flash (OpenRouter)
 adapter: openai-compatible
 base_url: https://openrouter.ai/api/v1
-base_url_env: GLM_5.3_FLASH_BASE_URL
-api_key_env: GLM_5.3_FLASH_API_KEY
-model_env: GLM_5.3_FLASH_MODEL
+base_url_env: GLM_BASE_URL
+api_key_env: GLM_API_KEY
+model_env: GLM_MODEL
 model: z-ai/glm-5.3-flash
 structured_output: false
 max_output_tokens: 16000

@@ -11,9 +11,9 @@ from typing import Any
 import httpx
 import yaml
 
+from wildlife_csi.parse import ALTERNATIVE_WORD, NAME_WORD
 from wildlife_csi.provider_record import recorded_chat_completion, safe_url, utc_now
 from wildlife_csi.registry import resolve_model
-from wildlife_csi.parse import ALTERNATIVE_WORD, NAME_WORD
 
 PROMPT_VERSION = "answer-extraction-v2"
 SYSTEM_PROMPT = (

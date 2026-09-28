@@ -28,6 +28,7 @@ TRANSIENT = (
     "eof occurred",
     "overloaded",
     "rate limit",
+    "serviceunavailableexception",
     "temporarily",
 )
 RECORD_SCHEMA = 2
@@ -50,7 +51,7 @@ def code_hash() -> str:
 class RunSettings:
     max_workers: int = 2
     max_cost: float | None = None
-    retries: int = 3
+    retries: int = 10
     backoff_s: float = 1.0
 
     def __post_init__(self):
@@ -157,7 +158,7 @@ class RunEngine:
                     record["provider"] = exc.details
                 retry = transient and attempt <= settings.retries
                 if retry:
-                    record["backoff_s"] = min(8.0, settings.backoff_s * 2 ** (attempt - 1))
+                    record["backoff_s"] = min(30.0, settings.backoff_s * 2 ** (attempt - 1))
                 attempts.append(record)
                 if retry:
                     self.sleep(record["backoff_s"])
@@ -249,8 +250,7 @@ class RunEngine:
 
         def cost_reached() -> bool:
             return (
-                settings.max_cost is not None
-                and self.adapter.estimated_cost() >= settings.max_cost
+                settings.max_cost is not None and self.adapter.estimated_cost() >= settings.max_cost
             )
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=settings.max_workers) as pool:

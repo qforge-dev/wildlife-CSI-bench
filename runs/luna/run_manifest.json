@@ -1,0 +1,124 @@
+{
+  "adapter_config": {
+    "adapter": "openai-compatible",
+    "endpoint": "https://azure-endpoint.invalid/openai/v1",
+    "max_output_tokens": 16000,
+    "model_id": "luna",
+    "price_cached_1k_tokens": 1e-05,
+    "price_input_1k_tokens": 0.0001,
+    "price_output_1k_tokens": 0.0005,
+    "price_per_1k_requests": 0.0,
+    "provider_model": "gpt-6-luna",
+    "reasoning_effort": "high",
+    "reasoning_style": "flat",
+    "temperature": null,
+    "timeout_s": 120.0,
+    "token_param": "max_completion_tokens"
+  },
+  "capture_schema": 2,
+  "created_at_utc": "2026-09-26T20:19:28.531116+00:00",
+  "model_id": "luna",
+  "python_version": "3.13.7",
+  "sessions": [
+    {
+      "already_done": 0,
+      "code_sha256": "a0d88c8abbf4ee655b18f5468bf91c3d40980377c00eb09bd0a9698aa0d12c50",
+      "ended_at_utc": "2026-09-26T21:00:57.621883+00:00",
+      "estimated_cost_usd": 1.7817322,
+      "settings": {
+        "backoff_s": 1.0,
+        "max_cost": null,
+        "max_workers": 10,
+        "retries": 3
+      },
+      "started_at_utc": "2026-09-26T20:19:28.531464+00:00",
+      "stopped_at_max_cost": false,
+      "written": 2000
+    }
+  ],
+  "suite": {
+    "country_source": "iNaturalist public observation places; four private locations use documented species range examples",
+    "image_selection": "400 vetted images per clue type, selected before country enrichment",
+    "location_basis_counts": {
+      "observation_public_place": 1994,
+      "observation_public_place_with_text_conflict": 1,
+      "observation_public_territory": 1,
+      "species_occurrence_example": 4
+    },
+    "locations_sha256": "b89101bf3de5e96a8bf5df43a3087c26735d5bbe9a9481a6a1d984e33dbc5d99",
+    "per_type": {
+      "bone": 400,
+      "egg": 400,
+      "feather": 400,
+      "feces": 400,
+      "footprint": 400
+    },
+    "protocol_version": 1,
+    "seed": 42,
+    "selection": {
+      "candidate_multiplier": 2.0,
+      "ledger_sha256": "bb79e047e631531011d10bdefdb5738d65064c556233d125dcf5b956c9bf010d",
+      "per_type": {
+        "bone": {
+          "candidates": 800,
+          "max_per_species": 3,
+          "quality_score_median": 0.900898,
+          "quality_score_min": 0.402029,
+          "selected": 400,
+          "species": 229,
+          "top_ten_species_images": 30
+        },
+        "egg": {
+          "candidates": 554,
+          "max_per_species": 11,
+          "quality_score_median": 0.586609,
+          "quality_score_min": 0.400459,
+          "selected": 400,
+          "species": 160,
+          "top_ten_species_images": 102
+        },
+        "feather": {
+          "candidates": 800,
+          "max_per_species": 5,
+          "quality_score_median": 0.714438,
+          "quality_score_min": 0.404299,
+          "selected": 400,
+          "species": 191,
+          "top_ten_species_images": 50
+        },
+        "feces": {
+          "candidates": 669,
+          "max_per_species": 9,
+          "quality_score_median": 0.856944,
+          "quality_score_min": 0.403954,
+          "selected": 400,
+          "species": 91,
+          "top_ten_species_images": 81
+        },
+        "footprint": {
+          "candidates": 648,
+          "max_per_species": 10,
+          "quality_score_median": 0.696148,
+          "quality_score_min": 0.405697,
+          "selected": 400,
+          "species": 80,
+          "top_ten_species_images": 95
+        }
+      },
+      "policy": "quality-with-species-rounds-v3+visual-qa-v1"
+    },
+    "source_dataset": "AnimalClue test splits; pinned revisions in task source records",
+    "source_sha256": "7d1da3490391555e8cd06f4631d1ce9b1f49da8872e2e9252c54b77ce4398fe8",
+    "storage": {
+      "bucket": "wildlife-csi-dataset-088543363904",
+      "image_prefix": "media/sha256/",
+      "kind": "s3",
+      "metadata": "local",
+      "private": true,
+      "region": "us-east-1"
+    },
+    "suite": "wildlife-csi-country-v1",
+    "tasks": 2000,
+    "tasks_hash": "b1d0ee38219c2f63542ef6d39249ab2735b976287bb775101f5eba73cd877b42"
+  }
+}

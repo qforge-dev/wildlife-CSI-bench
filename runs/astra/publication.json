@@ -1,0 +1,32 @@
+{
+  "changes": [
+    "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
+    "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+  ],
+  "format_version": 1,
+  "model_id": "astra",
+  "predictions": {
+    "file": "predictions.jsonl.gz",
+    "rows": 2000,
+    "uncompressed_sha256": "5a12206888b13a95bd2a40024e632cae50822f1e48068c9b7e6cb2cb91c759e6"
+  },
+  "published_files_sha256": {
+    "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
+    "predictions.jsonl.gz": "5cd6da75a55953b1b2c47b96020a157e637b153b21d0038aeb7f68020d22fce9",
+    "run_manifest.json": "972a702b0c3c90a53dd7f7c6d72a447dfa1d8d40d2d3b692cce7f8190a4e1a37",
+    "score/resolutions.jsonl": "3f3ffbf43cb81d39e938bdfca807b563a93c2153ce3116d33e6ec46b83170631",
+    "score/review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "score/scores.jsonl": "fb58389c766f51f569f2f0bf2f2503e5cbb288dcd232120605326cd0fafbac30",
+    "score/summary.json": "486628cff7b6a246316c7d27aa0c46d53179d42d7ebc7a2d89da777efe46b6b9"
+  },
+  "source_files_sha256": {
+    "predictions.jsonl": "f3d6a650990aad2ce54158eb374d66effa19aade3101f6a240b2e368827923c6",
+    "run_manifest.json": "eb7cda6e5c7580ec0342d62b4edbf93d8be237fd5b2538f21e0e2a61da5d3653",
+    "score/resolutions.jsonl": "e211c2e87a3d57e4546795e6628ba334f625ab66c8ca8bc29cedab3584dfa7ef",
+    "score/review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "score/scores.jsonl": "fb58389c766f51f569f2f0bf2f2503e5cbb288dcd232120605326cd0fafbac30",
+    "score/summary.json": "e90b5f3dc712d0d8ae879b8c5952e711e2b202475ee22cd9085dd8d2d11223dd"
+  },
+  "tasks_hash": "b1d0ee38219c2f63542ef6d39249ab2735b976287bb775101f5eba73cd877b42"
+}

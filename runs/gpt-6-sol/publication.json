@@ -1,0 +1,34 @@
+{
+  "changes": [
+    "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
+    "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+  ],
+  "format_version": 1,
+  "model_id": "gpt-6-sol",
+  "predictions": {
+    "file": "predictions.jsonl.gz",
+    "rows": 2000,
+    "uncompressed_sha256": "f90c6d28933ac0754d3da5296ccee38e8bdcf83404f831fb3198ac8f6677741e"
+  },
+  "published_files_sha256": {
+    "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
+    "predictions.jsonl.gz": "5b4366775e3a3b0f0ccbf98e5023336e5fce9ee48c7b5b5b183367a93dcd5f4b",
+    "run_manifest.json": "b3e1ae57a0bd1e3a3c0dbd22417cc89e3ee90e39fe6fc8f4c28efad972001b44",
+    "score/extractions.jsonl": "c3147e9ef87809db6124c10f0ca19e7d609b145f39591d0aedb59dd23a84fc88",
+    "score/resolutions.jsonl": "3cf2281ede41c599dbaf8c55dc13047282a89573b2882ec195a39b20f305e940",
+    "score/review_queue.jsonl": "6392046318254715782893ca82c70bba73ac3719b75fa5aa29593292698330ec",
+    "score/scores.jsonl": "f3ac3a1016a324290640af61791c2bf7d8e64067f5bc15efb10d1f2ba391c36e",
+    "score/summary.json": "35fcc658421d0c3aad5104ccf1cb2feeea2976cb06806285404b808ffbad10b4"
+  },
+  "source_files_sha256": {
+    "predictions.jsonl": "f237784100210fe9000e503b143c7a30e914b1702616a1ca99f04aa524933d28",
+    "run_manifest.json": "7e4a33fe159dbbadb0a79288072a2a8435de8820fa8409207cdf3cc5c5287ec4",
+    "score/extractions.jsonl": "60347bdd773a6a3a395d59ae7c54377b3511f9dc717fc2b94256dd58e695ea08",
+    "score/resolutions.jsonl": "42c000bbc6804857f0ca7ca620e6180814f5f636fdf167f62da269135a159276",
+    "score/review_queue.jsonl": "6392046318254715782893ca82c70bba73ac3719b75fa5aa29593292698330ec",
+    "score/scores.jsonl": "f3ac3a1016a324290640af61791c2bf7d8e64067f5bc15efb10d1f2ba391c36e",
+    "score/summary.json": "225671ea0d85b59713fa471414ef1a99ca51da51686ecfec823a28fa7f17d3ac"
+  },
+  "tasks_hash": "b1d0ee38219c2f63542ef6d39249ab2735b976287bb775101f5eba73cd877b42"
+}

@@ -9,7 +9,6 @@ base_url_env: GEMINI_BASE_URL
 api_key_env: GEMINI_API_KEY
 model_env: GEMINI_MODEL
 model: gemini-3.8-flash
-# Open-ended animal identification; no candidate list is sent.
 structured_output: false
 reasoning_effort: high
 max_output_tokens: 16000

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import time
 from typing import Any
 
@@ -23,6 +24,13 @@ class BedrockAnswerAdapter(OpenAnswerAdapter):
             import boto3
             from botocore.config import Config
 
+            key_env = self._cfg.get("key_env")
+            if (
+                key_env
+                and (key := os.environ.get(key_env))
+                and not os.environ.get("AWS_BEARER_TOKEN_BEDROCK")
+            ):
+                os.environ["AWS_BEARER_TOKEN_BEDROCK"] = key
             self._bedrock_client = boto3.client(
                 "bedrock-runtime",
                 region_name=self._cfg["region"],

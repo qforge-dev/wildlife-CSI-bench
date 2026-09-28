@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="568" height="503" viewBox="0 0 568 503" role="img" aria-labelledby="title description">
+<title id="title">Wildlife CSI: exact species by trace type</title>
+<desc id="description">Bones: Claude Opus 5.5 38.50%, Muse Spark 1.3 32.00%, GPT-6 Astra 32.00%, GLM 5.3 Flash 18.50%, GPT-6 Sol 16.25%, DeepSeek V4.1 Flash 7.00%, GPT-6 Luna 7.00%; Eggs: Claude Opus 5.5 51.25%, Muse Spark 1.3 45.00%, GPT-6 Astra 43.75%, GLM 5.3 Flash 30.00%, GPT-6 Sol 35.75%, DeepSeek V4.1 Flash 23.50%, GPT-6 Luna 8.00%; Feathers: Claude Opus 5.5 36.50%, Muse Spark 1.3 38.75%, GPT-6 Astra 35.75%, GLM 5.3 Flash 23.50%, GPT-6 Sol 24.00%, DeepSeek V4.1 Flash 19.00%, GPT-6 Luna 11.00%; Droppings: Claude Opus 5.5 39.00%, Muse Spark 1.3 38.25%, GPT-6 Astra 31.25%, GLM 5.3 Flash 27.00%, GPT-6 Sol 21.00%, DeepSeek V4.1 Flash 12.75%, GPT-6 Luna 10.25%; Footprints: Claude Opus 5.5 20.50%, Muse Spark 1.3 12.75%, GPT-6 Astra 15.75%, GLM 5.3 Flash 9.75%, GPT-6 Sol 10.50%, DeepSeek V4.1 Flash 5.50%, GPT-6 Luna 4.75%</desc>
+<rect width="568" height="503" fill="#ffffff"/>
+<text x="0" y="29" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" text-anchor="start">The trace changes everything</text>
+<text x="0" y="49" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">Exact species · 400 photos per trace</text>
+<text x="194.3" y="94" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Bones</text>
+<text x="277.9" y="94" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Eggs</text>
+<text x="361.5" y="94" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Feathers</text>
+<text x="445.09999999999997" y="94" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Droppings</text>
+<text x="528.6999999999999" y="94" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="middle">Footprints</text>
+<text x="0" y="134" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Claude Opus 5.5</text>
+<rect x="155.00" y="107" width="78.60" height="39" rx="3" fill="#5baa91"/>
+<text x="194.3" y="132" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">38.5%</text>
+<rect x="238.60" y="107" width="78.60" height="39" rx="3" fill="#2a9071"/>
+<text x="277.9" y="132" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">51.2%</text>
+<rect x="322.20" y="107" width="78.60" height="39" rx="3" fill="#62ae97"/>
+<text x="361.5" y="132" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">36.5%</text>
+<rect x="405.80" y="107" width="78.60" height="39" rx="3" fill="#59a990"/>
+<text x="445.09999999999997" y="132" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">39.0%</text>
+<rect x="489.40" y="107" width="78.60" height="39" rx="3" fill="#a0cebf"/>
+<text x="528.6999999999999" y="132" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">20.5%</text>
+<text x="0" y="183" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Muse Spark 1.3*</text>
+<rect x="155.00" y="156" width="78.60" height="39" rx="3" fill="#74b7a2"/>
+<text x="194.3" y="181" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">32.0%</text>
+<rect x="238.60" y="156" width="78.60" height="39" rx="3" fill="#429d81"/>
+<text x="277.9" y="181" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">45.0%</text>
+<rect x="322.20" y="156" width="78.60" height="39" rx="3" fill="#5aaa91"/>
+<text x="361.5" y="181" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">38.8%</text>
+<rect x="405.80" y="156" width="78.60" height="39" rx="3" fill="#5caa92"/>
+<text x="445.09999999999997" y="181" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">38.2%</text>
+<rect x="489.40" y="156" width="78.60" height="39" rx="3" fill="#beded3"/>
+<text x="528.6999999999999" y="181" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">12.8%</text>
+<text x="0" y="232" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">GPT-6 Astra</text>
+<rect x="155.00" y="205" width="78.60" height="39" rx="3" fill="#74b7a2"/>
+<text x="194.3" y="230" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">32.0%</text>
+<rect x="238.60" y="205" width="78.60" height="39" rx="3" fill="#47a084"/>
+<text x="277.9" y="230" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">43.8%</text>
+<rect x="322.20" y="205" width="78.60" height="39" rx="3" fill="#65b098"/>
+<text x="361.5" y="230" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">35.8%</text>
+<rect x="405.80" y="205" width="78.60" height="39" rx="3" fill="#77b8a4"/>
+<text x="445.09999999999997" y="230" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">31.2%</text>
+<rect x="489.40" y="205" width="78.60" height="39" rx="3" fill="#b2d8cb"/>
+<text x="528.6999999999999" y="230" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">15.8%</text>
+<text x="0" y="281" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">GLM 5.3 Flash</text>
+<rect x="155.00" y="254" width="78.60" height="39" rx="3" fill="#a8d2c4"/>
+<text x="194.3" y="279" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">18.5%</text>
+<rect x="238.60" y="254" width="78.60" height="39" rx="3" fill="#7cbba7"/>
+<text x="277.9" y="279" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">30.0%</text>
+<rect x="322.20" y="254" width="78.60" height="39" rx="3" fill="#95c8b7"/>
+<text x="361.5" y="279" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">23.5%</text>
+<rect x="405.80" y="254" width="78.60" height="39" rx="3" fill="#87c1af"/>
+<text x="445.09999999999997" y="279" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">27.0%</text>
+<rect x="489.40" y="254" width="78.60" height="39" rx="3" fill="#c9e4da"/>
+<text x="528.6999999999999" y="279" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">9.8%</text>
+<text x="0" y="330" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">GPT-6 Sol</text>
+<rect x="155.00" y="303" width="78.60" height="39" rx="3" fill="#b0d6ca"/>
+<text x="194.3" y="328" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">16.2%</text>
+<rect x="238.60" y="303" width="78.60" height="39" rx="3" fill="#65b098"/>
+<text x="277.9" y="328" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">35.8%</text>
+<rect x="322.20" y="303" width="78.60" height="39" rx="3" fill="#93c7b6"/>
+<text x="361.5" y="328" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">24.0%</text>
+<rect x="405.80" y="303" width="78.60" height="39" rx="3" fill="#9ecdbe"/>
+<text x="445.09999999999997" y="328" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">21.0%</text>
+<rect x="489.40" y="303" width="78.60" height="39" rx="3" fill="#c7e2d8"/>
+<text x="528.6999999999999" y="328" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">10.5%</text>
+<text x="0" y="379" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">DeepSeek V4.1 Flash</text>
+<rect x="155.00" y="352" width="78.60" height="39" rx="3" fill="#d4e9e1"/>
+<text x="194.3" y="377" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">7.0%</text>
+<rect x="238.60" y="352" width="78.60" height="39" rx="3" fill="#95c8b7"/>
+<text x="277.9" y="377" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">23.5%</text>
+<rect x="322.20" y="352" width="78.60" height="39" rx="3" fill="#a6d1c3"/>
+<text x="361.5" y="377" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">19.0%</text>
+<rect x="405.80" y="352" width="78.60" height="39" rx="3" fill="#beded3"/>
+<text x="445.09999999999997" y="377" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">12.8%</text>
+<rect x="489.40" y="352" width="78.60" height="39" rx="3" fill="#daece5"/>
+<text x="528.6999999999999" y="377" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">5.5%</text>
+<text x="0" y="428" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">GPT-6 Luna</text>
+<rect x="155.00" y="401" width="78.60" height="39" rx="3" fill="#d4e9e1"/>
+<text x="194.3" y="426" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">7.0%</text>
+<rect x="238.60" y="401" width="78.60" height="39" rx="3" fill="#d0e7df"/>
+<text x="277.9" y="426" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">8.0%</text>
+<rect x="322.20" y="401" width="78.60" height="39" rx="3" fill="#c5e1d7"/>
+<text x="361.5" y="426" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">11.0%</text>
+<rect x="405.80" y="401" width="78.60" height="39" rx="3" fill="#c8e2d9"/>
+<text x="445.09999999999997" y="426" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">10.2%</text>
+<rect x="489.40" y="401" width="78.60" height="39" rx="3" fill="#ddeee7"/>
+<text x="528.6999999999999" y="426" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11.5" font-weight="500" text-anchor="middle">4.8%</text>
+<text x="0" y="481" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">Darker = more exact identifications · failures count as misses</text>
+</svg>

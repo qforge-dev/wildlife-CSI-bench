@@ -1,4 +1,4 @@
-"""Verified reads of immutable CSI image objects from private S3."""
+"""Anonymous, checksum-verified reads of the published benchmark images."""
 
 from __future__ import annotations
 
@@ -8,6 +8,8 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import boto3
+from botocore import UNSIGNED
+from botocore.config import Config
 
 DEFAULT_REGION = "us-east-1"
 DEFAULT_CACHE = Path("data/work/csi-s3-cache")
@@ -18,7 +20,15 @@ def digest(data: bytes) -> str:
 
 
 def s3_client(region: str = DEFAULT_REGION):
-    return boto3.client("s3", region_name=region)
+    return boto3.client(
+        "s3",
+        region_name=region,
+        config=Config(
+            signature_version=UNSIGNED,
+            retries={"mode": "standard", "max_attempts": 4},
+            max_pool_connections=16,
+        ),
+    )
 
 
 def _atomic_write(path: Path, data: bytes) -> None:
@@ -41,6 +51,8 @@ class S3ImageStore:
 
     def load(self, task: dict) -> bytes:
         sha = task["image_sha256"]
+        if len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha):
+            raise ValueError("invalid image SHA-256")
         path = self.cache / sha[:2] / sha
         if path.exists():
             data = path.read_bytes()

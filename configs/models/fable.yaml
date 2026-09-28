@@ -8,7 +8,6 @@ region_env: FABLE_REGION
 region: us-east-1
 model_env: FABLE_MODEL
 model: global.anthropic.claude-fable-5-1
-# Open-ended animal identification; no candidate list is sent.
 structured_output: false  # model rejects outputConfig (ValidationException)
 reasoning_effort: high
 max_output_tokens: 16000
