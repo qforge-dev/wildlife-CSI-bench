@@ -2,13 +2,17 @@
 
 # Wildlife CSI
 
-**2,000 photos · 5 trace types · 7 vision models**
+**2,000 photos. Five kinds of animal trace. One question: what animal left this?**
 
-Which animal left this footprint, dropping, feather, egg, or bone? Each model gets one photo and its country, then guesses the species.
+Wildlife CSI tests whether vision models can identify an animal from what it leaves behind: droppings, footprints, feathers, eggs, and bones. Each model gets one photo and its country, then makes one species guess.
 
-[Blog post](https://labqoat.com/blog/what-animal-left-this) · [Run it yourself](src/README.md) · [All runs](runs/) · [Chart data](assets/charts/results.json)
+The best model in these seven runs identified **37.15%** of species correctly. **873 photos** went without a correct species guess from any model.
+
+[Read the full post on the Labqoat blog](https://labqoat.com/blog/what-animal-left-this) · [Run it yourself](src/README.md) · [All runs](runs/) · [Chart data](assets/charts/results.json)
 
 ## Accuracy versus cost
+
+All seven models saw the same photos with **high reasoning effort**. Opus led with **743 of 2,000** species correct; Muse followed at **33.35%**, with an estimated run cost of **$0.77**.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/charts/cost-dark.svg">
@@ -16,7 +20,7 @@ Which animal left this footprint, dropping, feather, egg, or bone? Each model ge
   <img src="assets/charts/cost-light.svg" alt="Exact-species accuracy versus estimated cost for seven models. Opus leads at 37.15% and $22.92; Muse reaches 33.35% at $0.77; Astra reaches 31.70% at $102.43. Full values are in the expandable results table below." width="760">
 </picture>
 
-Exact-species accuracy across all 2,000 photos, including failed calls. Costs are estimates; Muse uses Contributor pricing.
+Scores include all 2,000 photos, including failed calls. Estimated costs use a logarithmic scale; the asterisk marks Muse's Contributor pricing.
 
 <details>
 <summary>Scores and run files</summary>
@@ -35,7 +39,9 @@ GLM and DeepSeek scores are provisional; see their run summaries for extractor-a
 
 </details>
 
-## By trace type
+## Footprints were the hardest
+
+Opus identified **205 of 400 egg photos (51.25%)**, but only **82 of 400 footprints (20.50%)**. It led on every trace type except feathers, where Muse scored highest.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/charts/traces-dark.svg">
@@ -43,9 +49,11 @@ GLM and DeepSeek scores are provisional; see their run summaries for extractor-a
   <img src="assets/charts/traces-light.svg" alt="Exact-species accuracy by trace type, with 400 photos per type. Opus leads on bones, eggs, droppings, and footprints; Muse leads on feathers. Footprints have the lowest accuracy for every model." width="760">
 </picture>
 
-400 photos per type. Footprints were hardest for every model.
+Each cell shows exact-species accuracy on 400 photos. Darker cells mean more correct identifications.
 
 ## Which clues stumped everyone?
+
+Across all seven models, **873 of 2,000 photos (43.65%)** never received a correct species guess. That includes **265 footprints**, compared with **129 eggs**.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/charts/coverage-dark.svg">
@@ -53,6 +61,6 @@ GLM and DeepSeek scores are provisional; see their run summaries for extractor-a
   <img src="assets/charts/coverage-light.svg" alt="Photos grouped by how many models identified the species. No model got 265 footprints, 164 bones, 161 droppings, 154 feathers, or 129 eggs right. Each trace type contains 400 photos." width="760">
 </picture>
 
-**873 photos** received no correct species guess from any of the seven models.
+Each bar contains 400 photos, grouped by how many models got the species right. “Several” means more than one model but fewer than all seven.
 
 Photos from [AnimalClue](https://huggingface.co/risashinoda). Attribution and licenses are preserved in the task records.
