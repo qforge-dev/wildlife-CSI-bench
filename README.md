@@ -64,3 +64,5 @@ Across all seven models, **873 of 2,000 photos (43.65%)** never received a corre
 Each bar contains 400 photos, grouped by how many models got the species right. “Several” means more than one model but fewer than all seven.
 
 Photos from [AnimalClue](https://huggingface.co/risashinoda). Attribution and licenses are preserved in the task records.
+
+Want to run the benchmark yourself? The [guide in src](src/README.md) covers installation, model setup, and running and scoring your own results.
