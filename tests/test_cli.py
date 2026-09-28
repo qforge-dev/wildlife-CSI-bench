@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import httpx
@@ -136,7 +137,7 @@ def test_custom_model_runs_scores_and_resumes_from_dotenv(setup, monkeypatch):
 def test_benchmark_requires_explicit_model_selection():
     result = CliRunner().invoke(app, ["benchmark"])
     assert result.exit_code == 2
-    assert "--models" in result.output
+    assert "--models" in re.sub(r"\x1b\[[0-9;]*m", "", result.output)
 
 
 @pytest.mark.parametrize("key_env", ["OPUS55_API_KEY", "AWS_BEARER_TOKEN_BEDROCK"])
