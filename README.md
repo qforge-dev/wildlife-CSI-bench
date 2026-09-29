@@ -12,27 +12,27 @@ The best model in these seven runs identified **37.15%** of species correctly. *
 
 ## Accuracy versus cost
 
-All seven models saw the same photos with **high reasoning effort**. Opus led with **743 of 2,000** species correct; Muse followed at **33.35%**, with an estimated run cost of **$0.77**.
+All seven models saw the same photos with **high reasoning effort**. Opus led with **743 of 2,000** species correct; Muse followed at **33.35%**, with a reported run cost of **$0.77**.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/charts/cost-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/charts/cost-light.svg">
-  <img src="assets/charts/cost-light.svg" alt="Exact-species accuracy versus estimated cost for seven models. Opus leads at 37.15% and $22.92; Muse reaches 33.35% at $0.77; Astra reaches 31.70% at $102.43. Full values are in the expandable results table below." width="760">
+  <img src="assets/charts/cost-light.svg" alt="Exact-species accuracy versus run cost for seven models. Opus leads at 37.15% and an estimated $22.92; Muse reaches 33.35% at a reported $0.77; Astra reaches 31.70% at an estimated $102.43. Full values are in the expandable results table below." width="760">
 </picture>
 
-Scores include all 2,000 photos, including failed calls. Estimated costs use a logarithmic scale; the asterisk marks Muse's Contributor pricing.
+Scores include all 2,000 photos, including failed calls. Costs use OpenRouter's reported charges for Muse, GLM, and DeepSeek; AWS and Azure costs are token-based estimates. The cost axis is logarithmic; the asterisk marks Muse's Contributor pricing. Unreported charges and separate scoring costs are excluded.
 
 <details>
 <summary>Scores and run files</summary>
 
-| Model | Exact species | Genus or better | Family or better | Estimated run cost | Evidence |
+| Model | Exact species | Genus or better | Family or better | Run cost | Evidence |
 | --- | ---: | ---: | ---: | ---: | --- |
 | **Claude Opus 5.5** | **37.15%** | **41.25%** | **51.75%** | $22.92 | [Run](runs/opus/) · [Scores](runs/opus/score/summary.json) |
 | Muse Spark 1.3 Contributor | 33.35% | 37.55% | 48.80% | $0.77 | [Run](runs/muse/) · [Scores](runs/muse/score/summary.json) |
 | GPT-6 Astra | 31.70% | 34.75% | 44.95% | $102.43 | [Run](runs/astra/) · [Scores](runs/astra/score/summary.json) |
-| GLM 5.3 Flash | 21.75% | 25.20% | 35.80% | $1.73 | [Run](runs/glm/) · [Scores](runs/glm/score/summary.json) |
+| GLM 5.3 Flash | 21.75% | 25.20% | 35.80% | $0.75 | [Run](runs/glm/) · [Scores](runs/glm/score/summary.json) |
 | GPT-6 Sol | 21.50% | 24.25% | 32.55% | $27.89 | [Run](runs/gpt-6-sol/) · [Scores](runs/gpt-6-sol/score/summary.json) |
-| DeepSeek V4.1 Flash | 13.55% | 16.15% | 24.15% | $12.19 | [Run](runs/deepseek/) · [Scores](runs/deepseek/score/summary.json) |
+| DeepSeek V4.1 Flash | 13.55% | 16.15% | 24.15% | $9.15 | [Run](runs/deepseek/) · [Scores](runs/deepseek/score/summary.json) |
 | GPT-6 Luna | 8.20% | 10.05% | 15.45% | $1.78 | [Run](runs/luna/) · [Scores](runs/luna/score/summary.json) |
 
 GLM and DeepSeek scores are provisional; see their run summaries for extractor-assisted grades.

@@ -34,6 +34,9 @@ def resolve_model(
     """Resolve env-backed fields without including secret values."""
     key_env = cfg.get("api_key_env", "")
     adapter = cfg.get("adapter", "openai-compatible")
+    cost_source = cfg.get("cost_source", "estimate")
+    if cost_source not in ("estimate", "provider"):
+        raise ValueError(f"invalid cost_source for model {cfg.get('id')}: {cost_source}")
     if require_key and key_env and adapter != "bedrock-converse" and not os.environ.get(key_env):
         raise RuntimeError(f"missing required env var: {key_env} (model {cfg.get('id')})")
     base_env = cfg.get("base_url_env", "")
@@ -48,6 +51,7 @@ def resolve_model(
         "id": cfg.get("id"),
         "display_name": cfg.get("display_name", cfg.get("id")),
         "adapter": adapter,
+        "cost_source": cost_source,
         "base_url": base.rstrip("/"),
         "base_configured": base_configured,
         "base_url_env": base_env,

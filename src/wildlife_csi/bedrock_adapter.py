@@ -125,11 +125,7 @@ class BedrockAnswerAdapter(OpenAnswerAdapter):
             }
         except (KeyError, TypeError, ValueError) as exc:
             raise ProviderCallError(f"unexpected Bedrock payload: {exc}", details) from exc
-        with self._lock:
-            self.totals["requests"] += 1
-            self.totals["input_tokens"] += usage["prompt_tokens"]
-            self.totals["output_tokens"] += usage["completion_tokens"]
-            self.totals["cached_input_tokens"] += usage["prompt_tokens_details"]["cached_tokens"]
+        self.record_usage(usage)
         return [{"taxon": answer, "score": 1.0}], {
             **details,
             "usage": usage,

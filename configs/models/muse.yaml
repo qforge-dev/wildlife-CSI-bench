@@ -15,7 +15,8 @@ reasoning_effort: high
 reasoning_api: openai
 reasoning_style: nested
 # temperature omitted: provider default.
-# Contributor-tier prices in USD per 1k tokens, verified 2026-09-11:
+cost_source: provider
+# Contributor-tier fallback prices in USD per 1k tokens, verified 2026-09-29:
 # https://openrouter.ai/api/v1/models/meta/muse-spark-1.3-contributor/endpoints
 # Per 1M tokens: $0.10 input, $0.20 output, $0.002 cached input.
 # No tools or web search are used in this benchmark.
@@ -24,4 +25,4 @@ price_input_1k_tokens: 0.0001
 price_cached_1k_tokens: 0.000002
 price_output_1k_tokens: 0.0002
 timeout_s: 180
-notes: "Muse Spark 1.3 Contributor via Meta on OpenRouter; high reasoning effort. Contributor-tier pricing verified 2026-09-11."
+notes: "Muse Spark 1.3 Contributor via Meta on OpenRouter; high reasoning. Costs use reported USD charges, with Contributor-tier rates as a fallback."

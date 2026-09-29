@@ -51,6 +51,8 @@ The default [answer extractor](../configs/extractors/answer.yaml) uses `GPT6_SOL
 
 `uv run csi models` lists model IDs and missing configuration without printing keys. Each model's settings, reasoning effort, token limit, and estimated prices live in [configs/models](../configs/models/). Verify rates for your provider before a paid run.
 
+OpenRouter configs set `cost_source: provider`: recorded USD charges from `usage.cost` take precedence over token-rate estimates, including when enforcing a spending limit or resuming a run. Missing or invalid charges fall back to the YAML rates. The `estimated_cost_usd` output field keeps its existing name; `provider.cost_source` identifies reported charges versus estimates. AWS and Azure costs remain token-rate estimates. Published raw runs retain their original estimates; the charts use their saved OpenRouter charges where available.
+
 ## Download and validate the images
 
 ```bash

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import math
 import threading
 import time
 from typing import Any
@@ -40,6 +41,7 @@ class OpenAnswerAdapter:
             "cached_input_tokens": 0,
         }
         self._lock = threading.Lock()
+        self._cost_usd = 0.0
 
     def public_config(self) -> dict[str, Any]:
         cfg = self._cfg
@@ -58,23 +60,27 @@ class OpenAnswerAdapter:
             "price_input_1k_tokens": cfg["price_input_1k_tokens"],
             "price_cached_1k_tokens": cfg.get("price_cached_1k_tokens", 0),
             "price_output_1k_tokens": cfg["price_output_1k_tokens"],
+            **({"cost_source": "provider"} if cfg.get("cost_source") == "provider" else {}),
         }
 
     def estimated_cost(self) -> float:
         with self._lock:
-            t = self.totals.copy()
-        cached = t["cached_input_tokens"]
-        fresh_in = max(t["input_tokens"] - cached, 0)
-        return (
-            t["requests"] / 1000 * self._cfg["price_per_1k_requests"]
-            + fresh_in / 1000 * self._cfg["price_input_1k_tokens"]
-            + cached
-            / 1000
-            * self._cfg.get("price_cached_1k_tokens", self._cfg["price_input_1k_tokens"])
-            + t["output_tokens"] / 1000 * self._cfg["price_output_1k_tokens"]
-        )
+            return self._cost_usd
+
+    def provider_cost(self, usage: dict) -> float | None:
+        cost = usage.get("cost")
+        if (
+            self._cfg.get("cost_source") == "provider"
+            and type(cost) in (int, float)
+            and math.isfinite(cost)
+            and cost >= 0
+        ):
+            return float(cost)
+        return None
 
     def usage_cost(self, usage: dict) -> float:
+        if (cost := self.provider_cost(usage)) is not None:
+            return cost
         prompt = int(usage.get("prompt_tokens") or 0)
         completion = int(usage.get("completion_tokens") or 0)
         cached = int((usage.get("prompt_tokens_details") or {}).get("cached_tokens") or 0)
@@ -87,17 +93,21 @@ class OpenAnswerAdapter:
             + completion / 1000 * self._cfg["price_output_1k_tokens"]
         )
 
+    def record_usage(self, usage: dict) -> None:
+        with self._lock:
+            self.totals["requests"] += 1
+            self.totals["input_tokens"] += int(usage.get("prompt_tokens") or 0)
+            self.totals["output_tokens"] += int(usage.get("completion_tokens") or 0)
+            self.totals["cached_input_tokens"] += int(
+                (usage.get("prompt_tokens_details") or {}).get("cached_tokens") or 0
+            )
+            self._cost_usd += self.usage_cost(usage)
+
     def seed_usage(self, rows: list[dict]) -> None:
         """Include completed rows when a run is resumed under a cost cap."""
-        with self._lock:
-            for row in rows:
-                usage = row.get("usage") or {}
-                self.totals["requests"] += 1
-                self.totals["input_tokens"] += int(usage.get("prompt_tokens") or 0)
-                self.totals["output_tokens"] += int(usage.get("completion_tokens") or 0)
-                self.totals["cached_input_tokens"] += int(
-                    (usage.get("prompt_tokens_details") or {}).get("cached_tokens") or 0
-                )
+        for row in rows:
+            if usage := row.get("usage"):
+                self.record_usage(usage)
 
     def predict(
         self, image_bytes: bytes, context: dict[str, Any]
@@ -172,19 +182,14 @@ class OpenAnswerAdapter:
                 raise TypeError("usage is not an object")
         except (KeyError, IndexError, TypeError) as exc:
             raise ProviderCallError(f"unexpected provider payload: {exc}", details) from exc
-        with self._lock:
-            self.totals["requests"] += 1
-            self.totals["input_tokens"] += int(usage.get("prompt_tokens") or 0)
-            self.totals["output_tokens"] += int(usage.get("completion_tokens") or 0)
-            self.totals["cached_input_tokens"] += int(
-                (usage.get("prompt_tokens_details") or {}).get("cached_tokens") or 0
-            )
+        self.record_usage(usage)
         return [{"taxon": answer, "score": 1.0}], {
             **details,
             "usage": usage,
             "finish_reason": choice.get("finish_reason"),
             "model": raw_json.get("model", self._cfg["model"]),
             "estimated_cost_usd": self.usage_cost(usage),
+            "cost_source": "provider" if self.provider_cost(usage) is not None else "estimate",
         }
 
 

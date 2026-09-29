@@ -104,6 +104,41 @@ def test_openrouter_reasoning_uses_nested_parameter(monkeypatch):
     assert "reasoning_effort" not in client.sent["json"]
 
 
+@pytest.mark.parametrize("charge", [0.0, 0.00001, 0.1])
+def test_reported_cost_survives_resume_and_drives_running_total(monkeypatch, charge):
+    monkeypatch.setenv("TEST_WILDLIFE_API_KEY", "secret")
+    usage = {"prompt_tokens": 100, "completion_tokens": 20, "cost": charge}
+    response = httpx.Response(
+        200,
+        json={
+            "choices": [{"message": {"content": "ANIMAL: fox"}, "finish_reason": "stop"}],
+            "usage": usage,
+        },
+        request=httpx.Request("POST", "https://api.example/v1/chat/completions"),
+    )
+    config = {**model_config(), "cost_source": "provider"}
+    adapter = OpenAnswerAdapter(config, client=FakeHTTP(response))
+    adapter.seed_usage([{"usage": usage, "estimated_cost_usd": 99}, {"usage": {}}])
+    _, info = adapter.predict(b"image", {"user_prompt": "Identify the animal"})
+    assert info["estimated_cost_usd"] == charge
+    assert info["cost_source"] == "provider"
+    assert adapter.estimated_cost() == pytest.approx(2 * charge)
+
+
+@pytest.mark.parametrize("charge", [None, -1, float("nan"), float("inf"), "0.01", True])
+def test_invalid_provider_cost_falls_back_to_token_rates(charge):
+    adapter = OpenAnswerAdapter({**model_config(), "cost_source": "provider"})
+    usage = {"prompt_tokens": 100, "completion_tokens": 20, "cost": charge}
+    adapter.seed_usage([{"usage": usage}])
+    assert adapter.usage_cost(usage) == pytest.approx(0.00014)
+    assert adapter.estimated_cost() == pytest.approx(0.00014)
+
+
+def test_provider_cost_requires_model_opt_in():
+    adapter = OpenAnswerAdapter(model_config())
+    assert adapter.usage_cost({"prompt_tokens": 100, "cost": 10}) == pytest.approx(0.0001)
+
+
 def test_bedrock_records_raw_response_and_usage():
     class FakeBedrock:
         def converse(self, **kwargs):

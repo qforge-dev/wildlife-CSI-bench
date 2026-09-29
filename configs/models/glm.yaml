@@ -15,14 +15,13 @@ reasoning_effort: high
 reasoning_api: openai
 reasoning_style: nested
 # temperature omitted: provider default.
-# Prices in USD per 1k tokens, verified 2026-09-11:
+cost_source: provider
+# Fallback prices in USD per 1k tokens, verified 2026-09-29:
 # https://openrouter.ai/api/v1/models/z-ai/glm-5.3-flash/endpoints
-# Automatic provider routing; use the highest currently listed active rates
-# ($0.45 input / $1.50 output / $0.09 cache read per 1M, Modal).
-# DeepInfra's discounted $0.075/$0.25/$0.015 per 1M is not guaranteed by routing.
+# Automatic routing: use the highest listed rates when usage.cost is missing.
 price_per_1k_requests: 0.0
-price_input_1k_tokens: 0.00045
-price_cached_1k_tokens: 0.00009
-price_output_1k_tokens: 0.0015
+price_input_1k_tokens: 0.00075
+price_cached_1k_tokens: 0.00005
+price_output_1k_tokens: 0.001
 timeout_s: 180
-notes: "Vision via OpenRouter; high by default, low supported. Automatic provider routing; budget estimates use conservative listed rates, not actual billed cost."
+notes: "Vision via OpenRouter; high reasoning. Costs use reported USD charges, with conservative provider-rate estimates only when charges are missing."

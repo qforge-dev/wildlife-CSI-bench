@@ -45,6 +45,11 @@
       },
       "predictionsSha256": "1ffd99460d3f900fa4834c62bd91e5ef20b4ae92d31c074599508af821559b13",
       "estimatedCostUsd": 22.917916,
+      "costUsd": 22.917916,
+      "costSource": "estimate",
+      "reportedCostUsd": null,
+      "callsWithReportedCost": 0,
+      "callsWithEstimatedCost": 2000,
       "callsWithoutCost": 0
     },
     {
@@ -91,6 +96,11 @@
       },
       "predictionsSha256": "671d1dc459f21f0f40a5e51f2faa49125c83d091ea3986e08445378b46160b7c",
       "estimatedCostUsd": 0.7661652,
+      "costUsd": 0.7661652,
+      "costSource": "provider",
+      "reportedCostUsd": 0.7661652,
+      "callsWithReportedCost": 2000,
+      "callsWithEstimatedCost": 0,
       "callsWithoutCost": 0
     },
     {
@@ -137,6 +147,11 @@
       },
       "predictionsSha256": "f3d6a650990aad2ce54158eb374d66effa19aade3101f6a240b2e368827923c6",
       "estimatedCostUsd": 102.42547,
+      "costUsd": 102.42547,
+      "costSource": "estimate",
+      "reportedCostUsd": null,
+      "callsWithReportedCost": 0,
+      "callsWithEstimatedCost": 1926,
       "callsWithoutCost": 74
     },
     {
@@ -183,6 +198,11 @@
       },
       "predictionsSha256": "d5b3ded7663383617da68e1f0fa618c2609d91020f98edaf69b38e5c7f2c835c",
       "estimatedCostUsd": 1.72798758,
+      "costUsd": 0.749429918,
+      "costSource": "provider",
+      "reportedCostUsd": 0.749429918,
+      "callsWithReportedCost": 2000,
+      "callsWithEstimatedCost": 0,
       "callsWithoutCost": 0
     },
     {
@@ -229,6 +249,11 @@
       },
       "predictionsSha256": "f237784100210fe9000e503b143c7a30e914b1702616a1ca99f04aa524933d28",
       "estimatedCostUsd": 27.887688,
+      "costUsd": 27.887688,
+      "costSource": "estimate",
+      "reportedCostUsd": null,
+      "callsWithReportedCost": 0,
+      "callsWithEstimatedCost": 1901,
       "callsWithoutCost": 99
     },
     {
@@ -275,6 +300,11 @@
       },
       "predictionsSha256": "664deee1a2eac778b27aa63887cfe2dd2208363cd20402cbce9605b71d13b259",
       "estimatedCostUsd": 12.19130886,
+      "costUsd": 9.14575357107,
+      "costSource": "provider",
+      "reportedCostUsd": 9.14575357107,
+      "callsWithReportedCost": 2000,
+      "callsWithEstimatedCost": 0,
       "callsWithoutCost": 0
     },
     {
@@ -321,6 +351,11 @@
       },
       "predictionsSha256": "054cb162d0a5ed4546577f9dd0af33eae7ce3b13971417527782300a23c25b0c",
       "estimatedCostUsd": 1.7817322,
+      "costUsd": 1.7817322,
+      "costSource": "estimate",
+      "reportedCostUsd": null,
+      "callsWithReportedCost": 0,
+      "callsWithEstimatedCost": 1898,
       "callsWithoutCost": 102
     }
   ],
