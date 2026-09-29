@@ -118,7 +118,7 @@ The runner supports OpenAI-compatible chat-completion vision endpoints and Bedro
 | `score/extractions.jsonl` | Text-extractor calls and decisions |
 | `score/review_queue.jsonl` | Answers requiring manual review |
 
-Your generated runs, caches, and credentials are excluded from Git. The seven published runs live separately in [runs](../runs/), with full predictions compressed as `predictions.jsonl.gz`. Each `publication.json` records original and published file hashes. Private Azure resource hostnames are replaced with `azure-endpoint.invalid`; model answers, usage, costs, and grades are preserved.
+Your generated runs, caches, and credentials are excluded from Git. The eight published runs live separately in [runs](../runs/), with full predictions compressed as `predictions.jsonl.gz`. Each `publication.json` records original and published file hashes. Private Azure resource hostnames are replaced with `azure-endpoint.invalid`; model answers, usage, costs, and grades are preserved.
 
 ## Replay the published runs
 

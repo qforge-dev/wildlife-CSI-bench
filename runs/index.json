@@ -32,6 +32,16 @@
       "published_predictions_sha256": "5a12206888b13a95bd2a40024e632cae50822f1e48068c9b7e6cb2cb91c759e6"
     },
     {
+      "archive_bytes": 996810,
+      "directory": "sonnet",
+      "exact_accuracy": 0.2515,
+      "label": "Claude Sonnet 5.5",
+      "model_id": "sonnet",
+      "original_predictions_sha256": "2500eaded7b09ec8477f702838b460661c1849e0c273e4d1f330ee6029a4367d",
+      "prediction_records": 2000,
+      "published_predictions_sha256": "2500eaded7b09ec8477f702838b460661c1849e0c273e4d1f330ee6029a4367d"
+    },
+    {
       "archive_bytes": 1246520,
       "directory": "glm",
       "exact_accuracy": 0.2175,

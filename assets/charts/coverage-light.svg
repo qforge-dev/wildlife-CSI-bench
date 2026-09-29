@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="568" height="455" viewBox="0 0 568 455" role="img" aria-labelledby="title description">
 <title id="title">Which clues stumped everyone?</title>
-<desc id="description">Footprints: 265 photos with no models correct, 56 photos with 1 model correct, 79 photos with several models correct, 0 photos with all models correct; Bones: 164 photos with no models correct, 82 photos with 1 model correct, 151 photos with several models correct, 3 photos with all models correct; Droppings: 161 photos with no models correct, 71 photos with 1 model correct, 154 photos with several models correct, 14 photos with all models correct; Feathers: 154 photos with no models correct, 72 photos with 1 model correct, 156 photos with several models correct, 18 photos with all models correct; Eggs: 129 photos with no models correct, 56 photos with 1 model correct, 195 photos with several models correct, 20 photos with all models correct</desc>
+<desc id="description">Footprints: 257 photos with no models correct, 53 photos with 1 model correct, 90 photos with several models correct, 0 photos with all models correct; Bones: 157 photos with no models correct, 67 photos with 1 model correct, 173 photos with several models correct, 3 photos with all models correct; Droppings: 155 photos with no models correct, 65 photos with 1 model correct, 167 photos with several models correct, 13 photos with all models correct; Feathers: 150 photos with no models correct, 70 photos with 1 model correct, 162 photos with several models correct, 18 photos with all models correct; Eggs: 123 photos with no models correct, 55 photos with 1 model correct, 208 photos with several models correct, 14 photos with all models correct</desc>
 <rect width="568" height="455" fill="#ffffff"/>
 <text x="0" y="28" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="500" text-anchor="start">Which clues stumped everyone?</text>
 <text x="0" y="49" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">Models naming the exact species · 400 photos per trace</text>
@@ -13,45 +13,44 @@
 <rect x="284.0" y="87" width="9" height="9" fill="#047857"/>
 <text x="299.0" y="95" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="400" text-anchor="start">All models</text>
 <text x="0" y="129" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Footprints</text>
-<rect x="0.00" y="138" width="376.30" height="25" fill="#d7d5d1"/>
-<text x="188.15" y="155" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">265</text>
-<rect x="376.30" y="138" width="79.52" height="25" fill="#b5d2c7"/>
-<text x="416.06" y="155" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">56</text>
-<rect x="455.82" y="138" width="112.18" height="25" fill="#65a996"/>
-<text x="511.9100000000001" y="155" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">79</text>
+<rect x="0.00" y="138" width="364.94" height="25" fill="#d7d5d1"/>
+<text x="182.47" y="155" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">257</text>
+<rect x="364.94" y="138" width="75.26" height="25" fill="#b5d2c7"/>
+<text x="402.57" y="155" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">53</text>
+<rect x="440.20" y="138" width="127.80" height="25" fill="#65a996"/>
+<text x="504.09999999999997" y="155" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">90</text>
 <text x="0" y="183" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Bones</text>
-<rect x="0.00" y="192" width="232.88" height="25" fill="#d7d5d1"/>
-<text x="116.44" y="209" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">164</text>
-<rect x="232.88" y="192" width="116.44" height="25" fill="#b5d2c7"/>
-<text x="291.1" y="209" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">82</text>
-<rect x="349.32" y="192" width="214.42" height="25" fill="#65a996"/>
-<text x="456.53" y="209" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">151</text>
+<rect x="0.00" y="192" width="222.94" height="25" fill="#d7d5d1"/>
+<text x="111.47" y="209" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">157</text>
+<rect x="222.94" y="192" width="95.14" height="25" fill="#b5d2c7"/>
+<text x="270.51" y="209" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">67</text>
+<rect x="318.08" y="192" width="245.66" height="25" fill="#65a996"/>
+<text x="440.90999999999997" y="209" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">173</text>
 <rect x="563.74" y="192" width="4.26" height="25" fill="#047857"/>
 <text x="0" y="237" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Droppings</text>
-<rect x="0.00" y="246" width="228.62" height="25" fill="#d7d5d1"/>
-<text x="114.31" y="263" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">161</text>
-<rect x="228.62" y="246" width="100.82" height="25" fill="#b5d2c7"/>
-<text x="279.03" y="263" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">71</text>
-<rect x="329.44" y="246" width="218.68" height="25" fill="#65a996"/>
-<text x="438.78" y="263" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">154</text>
-<rect x="548.12" y="246" width="19.88" height="25" fill="#047857"/>
+<rect x="0.00" y="246" width="220.10" height="25" fill="#d7d5d1"/>
+<text x="110.05" y="263" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">155</text>
+<rect x="220.10" y="246" width="92.30" height="25" fill="#b5d2c7"/>
+<text x="266.25" y="263" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">65</text>
+<rect x="312.40" y="246" width="237.14" height="25" fill="#65a996"/>
+<text x="430.96999999999997" y="263" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">167</text>
+<rect x="549.54" y="246" width="18.46" height="25" fill="#047857"/>
 <text x="0" y="291" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Feathers</text>
-<rect x="0.00" y="300" width="218.68" height="25" fill="#d7d5d1"/>
-<text x="109.34" y="317" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">154</text>
-<rect x="218.68" y="300" width="102.24" height="25" fill="#b5d2c7"/>
-<text x="269.8" y="317" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">72</text>
-<rect x="320.92" y="300" width="221.52" height="25" fill="#65a996"/>
-<text x="431.68" y="317" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">156</text>
+<rect x="0.00" y="300" width="213.00" height="25" fill="#d7d5d1"/>
+<text x="106.5" y="317" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">150</text>
+<rect x="213.00" y="300" width="99.40" height="25" fill="#b5d2c7"/>
+<text x="262.7" y="317" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">70</text>
+<rect x="312.40" y="300" width="230.04" height="25" fill="#65a996"/>
+<text x="427.41999999999996" y="317" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">162</text>
 <rect x="542.44" y="300" width="25.56" height="25" fill="#047857"/>
 <text x="0" y="345" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="400" text-anchor="start">Eggs</text>
-<rect x="0.00" y="354" width="183.18" height="25" fill="#d7d5d1"/>
-<text x="91.59" y="371" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">129</text>
-<rect x="183.18" y="354" width="79.52" height="25" fill="#b5d2c7"/>
-<text x="222.94" y="371" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">56</text>
-<rect x="262.70" y="354" width="276.90" height="25" fill="#65a996"/>
-<text x="401.15000000000003" y="371" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">195</text>
-<rect x="539.60" y="354" width="28.40" height="25" fill="#047857"/>
-<text x="553.8000000000001" y="371" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">20</text>
+<rect x="0.00" y="354" width="174.66" height="25" fill="#d7d5d1"/>
+<text x="87.33" y="371" fill="#000000" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">123</text>
+<rect x="174.66" y="354" width="78.10" height="25" fill="#b5d2c7"/>
+<text x="213.71" y="371" fill="#27272a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">55</text>
+<rect x="252.76" y="354" width="295.36" height="25" fill="#65a996"/>
+<text x="400.44" y="371" fill="#111111" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10.5" font-weight="500" text-anchor="middle">208</text>
+<rect x="548.12" y="354" width="19.88" height="25" fill="#047857"/>
 <text x="0.0" y="412" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="start">0</text>
 <text x="142.0" y="412" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="middle">100</text>
 <text x="284.0" y="412" fill="#65656e" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="400" text-anchor="middle">200</text>

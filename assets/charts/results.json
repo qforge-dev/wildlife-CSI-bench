@@ -155,6 +155,57 @@
       "callsWithoutCost": 74
     },
     {
+      "id": "sonnet",
+      "label": "Claude Sonnet 5.5",
+      "all": {
+        "species": 503,
+        "genus": 575,
+        "family": 774
+      },
+      "outcomes": {
+        "exact": 503,
+        "sameGenus": 72,
+        "sameFamily": 199,
+        "wrongFamily": 1223,
+        "failed": 3
+      },
+      "byTrace": {
+        "bone": {
+          "species": 117,
+          "genus": 128,
+          "family": 169
+        },
+        "egg": {
+          "species": 127,
+          "genus": 148,
+          "family": 178
+        },
+        "feather": {
+          "species": 97,
+          "genus": 115,
+          "family": 182
+        },
+        "feces": {
+          "species": 98,
+          "genus": 110,
+          "family": 145
+        },
+        "footprint": {
+          "species": 64,
+          "genus": 74,
+          "family": 100
+        }
+      },
+      "predictionsSha256": "2500eaded7b09ec8477f702838b460661c1849e0c273e4d1f330ee6029a4367d",
+      "estimatedCostUsd": 7.622868,
+      "costUsd": 7.622868,
+      "costSource": "estimate",
+      "reportedCostUsd": null,
+      "callsWithReportedCost": 0,
+      "callsWithEstimatedCost": 2000,
+      "callsWithoutCost": 0
+    },
+    {
       "id": "glm",
       "label": "GLM 5.3 Flash",
       "all": {
@@ -369,42 +420,42 @@
     {
       "id": "footprint",
       "label": "Footprints",
-      "none": 265,
-      "one": 56,
-      "some": 79,
+      "none": 257,
+      "one": 53,
+      "some": 90,
       "all": 0
     },
     {
       "id": "bone",
       "label": "Bones",
-      "none": 164,
-      "one": 82,
-      "some": 151,
+      "none": 157,
+      "one": 67,
+      "some": 173,
       "all": 3
     },
     {
       "id": "feces",
       "label": "Droppings",
-      "none": 161,
-      "one": 71,
-      "some": 154,
-      "all": 14
+      "none": 155,
+      "one": 65,
+      "some": 167,
+      "all": 13
     },
     {
       "id": "feather",
       "label": "Feathers",
-      "none": 154,
-      "one": 72,
-      "some": 156,
+      "none": 150,
+      "one": 70,
+      "some": 162,
       "all": 18
     },
     {
       "id": "egg",
       "label": "Eggs",
-      "none": 129,
-      "one": 56,
-      "some": 195,
-      "all": 20
+      "none": 123,
+      "one": 55,
+      "some": 208,
+      "all": 14
     }
   ]
 }
