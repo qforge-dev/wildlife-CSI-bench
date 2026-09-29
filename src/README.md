@@ -42,6 +42,7 @@ Edit [.env.example](../.env.example)'s copied values in `.env`. You only need cr
 | `grok` | `OPENROUTER_API_KEY` | `OPENROUTER_BASE_URL`, `GROK_MODEL` |
 | `gemini` | `GEMINI_API_KEY` | `GEMINI_BASE_URL`, `GEMINI_MODEL` |
 | `opus` | `OPUS55_API_KEY`, `AWS_BEARER_TOKEN_BEDROCK`, or standard AWS credentials | `OPUS55_REGION`, `OPUS55_MODEL` |
+| `sonnet` | `SONNET55_API_KEY`, `AWS_BEARER_TOKEN_BEDROCK`, or standard AWS credentials | `SONNET55_REGION`, `SONNET55_MODEL` |
 | `fable` | `AWS_BEARER_TOKEN_BEDROCK` or standard AWS credentials | `FABLE_REGION`, `FABLE_MODEL` |
 
 For OpenAI, use `https://api.openai.com/v1` as the base URL. For Azure, use `https://YOUR-RESOURCE.openai.azure.com/openai/v1` and set the model override to your deployment name. Bedrock authentication applies only to model calls; image downloads stay anonymous. Muse's Contributor tier requires accepting the provider's data-use terms.

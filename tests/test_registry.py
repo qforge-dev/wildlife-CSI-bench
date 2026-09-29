@@ -16,6 +16,7 @@ def test_registry_has_gpt6_sol():
         "luna",
         "muse",
         "opus",
+        "sonnet",
     } <= set(reg)
     assert "sol" not in reg and "terra" not in reg
     cfg = reg["gpt-6-sol"]
