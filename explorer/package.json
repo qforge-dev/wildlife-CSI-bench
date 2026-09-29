@@ -1,0 +1,28 @@
+{
+  "name": "wildlife-csi-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "data": "cd .. && uv run scripts/analyze_confusions.py runs/*/score/confusion_matrix.json --graph-output explorer/public/network.json",
+    "predev": "npm run data",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "npm run data",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --experimental-strip-types --test src/*.test.ts"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}

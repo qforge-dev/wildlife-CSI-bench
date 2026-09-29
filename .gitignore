@@ -19,3 +19,7 @@ data/**/build-checkpoint.jsonl
 *.egg-info/
 build/
 dist/
+
+# Browser explorer
+node_modules/
+explorer/public/network.json

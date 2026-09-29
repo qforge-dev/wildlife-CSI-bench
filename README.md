@@ -64,6 +64,8 @@ These are the **15 most common species** in the dataset, covering **308 photos**
 
 Numbers are photo counts; color shows the share of each row. “Other predictions” keeps answers outside these 15 species in the totals. [Full matrix](runs/opus/score/confusion_matrix.json).
 
+[Explore confusion patterns across all eight models](https://qforge-dev.github.io/wildlife-CSI-bench/) — filter species, inspect shared mistakes, and share a view by copying its link.
+
 ## Which clues stumped everyone?
 
 Across all eight models, **842 of 2,000 photos (42.10%)** never received a correct species guess. That includes **257 footprints**, compared with **123 eggs**.
