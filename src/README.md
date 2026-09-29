@@ -114,11 +114,37 @@ The runner supports OpenAI-compatible chat-completion vision endpoints and Bedro
 | `run_manifest.json` | Suite identity, model settings, and execution sessions |
 | `score/summary.json` | Species, genus, and family scores, per-trace results, failures, and provenance hashes |
 | `score/scores.jsonl` | Per-photo grades and how each answer was resolved |
+| `score/confusion_matrix.json` | Full species confusion counts, overall and per trace type, including non-answer outcomes |
 | `score/resolutions.jsonl` | Recorded taxonomy resolutions for replay |
 | `score/extractions.jsonl` | Text-extractor calls and decisions |
 | `score/review_queue.jsonl` | Answers requiring manual review |
 
 Your generated runs, caches, and credentials are excluded from Git. The eight published runs live separately in [runs](../runs/), with full predictions compressed as `predictions.jsonl.gz`. Each `publication.json` records original and published file hashes. Private Azure resource hostnames are replaced with `azure-endpoint.invalid`; model answers, usage, costs, and grades are preserved.
+
+### Confusion matrices
+
+Scoring writes `score/confusion_matrix.json` automatically. To regenerate existing runs offline:
+
+```bash
+uv run csi confusion runs/*/score
+```
+
+Rows are actual species; columns are predictions. `overall.counts[actual][predicted]` holds
+photo counts (omitted cells are zero), `row_totals` gives support, and `per_clue_type` splits
+the counts by trace type. `labels` maps keys to taxonomy IDs and names. Species use `species:`
+keys, higher-rank answers use `taxon:`, and failures use `status:`. Endpoint blocks retain the
+runner's `transport_error` status. Unknown parent-species names are `null`, with recorded names
+in `observed_names`. Source hashes and scoring-review flags are included.
+
+Render the README chart with its separate Matplotlib dependency:
+
+```bash
+uv run scripts/plot_confusion.py runs/opus/score/confusion_matrix.json \
+  --title "Opus 5.5 · Species confusion"
+```
+
+The script exports light and dark SVGs. It selects the 15 most frequent species (ties by scientific
+name) and includes all remaining predictions in “Other predictions”.
 
 ## Replay the published runs
 

@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
     "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
-    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "luna",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "ad11efce85e67ecdf35f2ad7f7c9d39f79ca94a19d1b02ff116df3c2ca084ad2",
     "run_manifest.json": "37185df6ee2a2fd8a64b2d0122734383437836ab68492ffdbd7862166dd885a4",
+    "score/confusion_matrix.json": "3a46f16584ac75da7d79913b3048795596d46fb50ca38fb833a7be6d2f29ac91",
     "score/extractions.jsonl": "fc6ac4a63d77f92ac405b6955e2c6027d18155def530291168d0f53d60b6f680",
     "score/resolutions.jsonl": "33748f2dcffffaa55d1018bf482e3976c41bd5f039a472ba5c13f4b4c85e5041",
     "score/review_queue.jsonl": "663e04dab74d16ea2250dfd2da3a119fbd4fb7316f04003e068c42111f35b849",

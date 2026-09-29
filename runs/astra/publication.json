@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
     "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
-    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "astra",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "5cd6da75a55953b1b2c47b96020a157e637b153b21d0038aeb7f68020d22fce9",
     "run_manifest.json": "972a702b0c3c90a53dd7f7c6d72a447dfa1d8d40d2d3b692cce7f8190a4e1a37",
+    "score/confusion_matrix.json": "9b5012db252641f0dac1ea97a80b5d3270fae0b787e54877326af99593b8c16f",
     "score/resolutions.jsonl": "3f3ffbf43cb81d39e938bdfca807b563a93c2153ce3116d33e6ec46b83170631",
     "score/review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "score/scores.jsonl": "fb58389c766f51f569f2f0bf2f2503e5cbb288dcd232120605326cd0fafbac30",

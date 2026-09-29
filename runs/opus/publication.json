@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
     "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
-    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "opus",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "f6993eaff14cd657e2571575c8a827c09a885e148a9c4865ece3d751c39bc909",
     "run_manifest.json": "471abc009b60cf707742c5655f99ce3719ce8efb3291149a165cf383bd0c5f70",
+    "score/confusion_matrix.json": "d0f13ce877205b51c018c99c8e185b3364720a0c844a4c341b61331ac9cb8993",
     "score/extractions.jsonl": "1059d343cfdbaa8c2f5e2d0199fb376785aec33c5b01c7fc98e26a14648edfcd",
     "score/resolutions.jsonl": "f4ee293465dad36ecac97126d32ed122b9ae504ea3629a46d233d4829bb30ff5",
     "score/review_queue.jsonl": "759d13f0543eefbc2056f2e195a72a4b701b67f82267d46e0a8e46c24c67629c",

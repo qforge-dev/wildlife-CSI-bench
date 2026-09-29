@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
     "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
-    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "deepseek",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "d3fb3617a95b4e6b929856653670f22caa7549498638d004042c753a0c599deb",
     "run_manifest.json": "3e96ec16e00167d4cc332354bac652b572acd5b239b8236c5cc5e7cb32bf7629",
+    "score/confusion_matrix.json": "6ea8941b8b761c26884be1eec3d93f2492dccc99ca8e524967daa845bbfb27ec",
     "score/extractions.jsonl": "de4eaef25c974f2747321d987302091ead9038d2e7c74ab90518e2e9eee6875d",
     "score/resolutions.jsonl": "7fa2aa968e165716fecd7a23d869f3c1fd128eed19008c52655ca3c2d6ea2247",
     "score/review_queue.jsonl": "a64314400ec92a4996ec6de9dc664087798587308f5b5f7a491bdf2b7d4d6102",

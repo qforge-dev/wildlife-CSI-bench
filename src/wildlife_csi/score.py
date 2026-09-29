@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from wildlife_csi.answer_extractor import load_extractor
+from wildlife_csi.confusion import write_confusion_matrix
 from wildlife_csi.execution import code_hash
 from wildlife_csi.scoring import ScoreEngine, align_predictions
 from wildlife_csi.source import INaturalist
@@ -91,4 +92,5 @@ def score_run(
         "".join(json.dumps(d, sort_keys=True) + "\n" for d in details if d["review_required"])
     )
     (out / "summary.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    write_confusion_matrix(out)
     return result

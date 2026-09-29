@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure resource hostname with azure-endpoint.invalid in provider metadata.",
     "Rebound prediction and extractor cache identities to the published files; updated summary hashes.",
-    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full prediction records with gzip. Model answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "muse",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "bbecd263d4f16e467782d16aa9eb3ca289ba25afda215d8270ea7867e3102ae7",
     "run_manifest.json": "2a2b55610e7eedd4d1938da4eba77e9017a91f07d7184a5feb5af3687ca49181",
+    "score/confusion_matrix.json": "2a2c90f36abb6ca823605fa0f0d8da5b3d863c5ebff06e8b8190ba3ba4c5cfe4",
     "score/extractions.jsonl": "4a8a158b77a827d1f2dea2359c45fba9fb9d2d2362f2d7b0601bdedf8a0331d2",
     "score/resolutions.jsonl": "7920d205907e8bf6d65055c0aeea785ae1ef86d66ba5e2ed62e4f9fa21c9574d",
     "score/review_queue.jsonl": "a097dc2219414b4702c5ad44b4b3e1473079307c7ed8b91fb10ce0590eb079d2",

@@ -112,6 +112,11 @@ def test_custom_model_runs_scores_and_resumes_from_dotenv(setup, monkeypatch):
     assert result_data["score"]["score_complete"]
     assert len(calls) == 1
     assert "test-only-key" not in Path(result_data["predictions"]).read_text()
+    matrix_path = Path(result_data["predictions"]).parent / "score/confusion_matrix.json"
+    matrix = json.loads(matrix_path.read_text())
+    assert matrix["overall"]["counts"] == {"species:1": {"species:1": 1}}
+    assert matrix["overall"]["total"] == 1
+    assert matrix["overall"]["exact"] == 1
 
     resumed = runner.invoke(app, args)
     assert resumed.exit_code == 0, resumed.output

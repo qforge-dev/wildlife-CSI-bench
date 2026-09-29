@@ -2,6 +2,7 @@ include .env.example
 include uv.lock
 include src/README.md
 include tests/helpers.py
+include scripts/plot_confusion.py
 recursive-include configs *.yaml
 recursive-include infra *.json
 recursive-include assets *.jpg *.svg *.json

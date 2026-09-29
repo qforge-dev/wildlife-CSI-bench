@@ -52,6 +52,18 @@ Opus identified **205 of 400 egg photos (51.25%)**, but only **82 of 400 footpri
 
 Each cell shows exact-species accuracy on 400 photos. Darker cells mean more correct identifications.
 
+## Which species did Opus confuse?
+
+These are the **15 most common species** in the dataset, covering **308 photos**. Opus identified 7 of 20 mule-deer photos correctly and called another 6 white-tailed deer.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/charts/confusion-opus-top15-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/charts/confusion-opus-top15-light.svg">
+  <img src="assets/charts/confusion-opus-top15-light.svg" alt="Opus 5.5 confusion matrix for the 15 most common actual species, covering 308 photos. Rows show actual species and columns show predictions. Counts on the outlined diagonal are correct; the final column includes all other predictions." width="760">
+</picture>
+
+Numbers are photo counts; color shows the share of each row. “Other predictions” keeps answers outside these 15 species in the totals. [Full matrix](runs/opus/score/confusion_matrix.json).
+
 ## Which clues stumped everyone?
 
 Across all eight models, **842 of 2,000 photos (42.10%)** never received a correct species guess. That includes **257 footprints**, compared with **123 eggs**.

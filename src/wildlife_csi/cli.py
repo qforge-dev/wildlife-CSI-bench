@@ -146,5 +146,14 @@ def score(
     )
 
 
+@app.command()
+def confusion(score_dirs: list[Path] = typer.Argument(..., help="One or more score directories.")):
+    """Generate confusion matrices from saved scores, without credentials or network calls."""
+    from wildlife_csi.confusion import write_confusion_matrix
+
+    for directory in score_dirs:
+        typer.echo(str(write_confusion_matrix(directory)))
+
+
 if __name__ == "__main__":
     app()

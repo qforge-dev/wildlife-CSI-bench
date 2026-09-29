@@ -2,7 +2,8 @@
   "changes": [
     "Replaced the private Azure extractor hostname with azure-endpoint.invalid.",
     "Rebound extractor cache identities and updated summary hashes for offline replay.",
-    "Compressed full predictions with gzip. Answers, usage, costs, task identities, and grades are unchanged."
+    "Compressed full predictions with gzip. Answers, usage, costs, task identities, and grades are unchanged.",
+    "Added a derived species confusion matrix from the unchanged per-photo scores and summary."
   ],
   "format_version": 1,
   "model_id": "sonnet",
@@ -15,6 +16,7 @@
     "extractor.yaml": "32f1aee88255ec198f72e806460fd6c771e85c110425c9e37b8d736b60462363",
     "predictions.jsonl.gz": "0fafc2537b622ffd0df0829fa47c3b677cfd371e3bfb451e0c9678ac035271f7",
     "run_manifest.json": "c5b1d12b72ca9cb81d4ec2bbfb0a45621c82cfd6eecae13789392876e8b13cef",
+    "score/confusion_matrix.json": "0ed48b720e65f82fc073bdac4d405c870949af9942da085e70703d6576a43593",
     "score/extractions.jsonl": "8e7e32f504e7a81cb43d7ba1aacc8fcd34219597aff336fde515ad947268b364",
     "score/resolutions.jsonl": "064e1c64da2ed835b02d529230baee1113d26d49bc98470cf07586145effc52e",
     "score/review_queue.jsonl": "bcdc8bd485fa9d6a3fd7cb8b98a244dfeb1769b824e28e4bd6d7789c1a9b6d1e",
